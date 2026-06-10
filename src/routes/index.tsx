@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowUpRight, Star } from "lucide-react";
-import portrait from "@/assets/designer-portrait.jpg";
+import portrait from "@/assets/jayshuman-rao.webp.asset.json";
 import { projects, testimonials } from "@/lib/portfolio-data";
 import { FadeUp, SectionHeading } from "@/components/section";
 
