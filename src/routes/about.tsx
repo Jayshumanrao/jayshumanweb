@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Award, GraduationCap } from "lucide-react";
+import { Award, MapPin, Languages, CheckCircle2 } from "lucide-react";
 import { FadeUp, SectionHeading } from "@/components/section";
 import { skills, timeline } from "@/lib/portfolio-data";
 
@@ -7,9 +7,9 @@ export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
       { title: "About — Jayshuman Rao" },
-      { name: "description", content: "Bio, career journey, education, and design skills of Jayshuman Rao, graphic designer and brand strategist." },
+      { name: "description", content: "Professional bio, skills, and specializations of Jayshuman Rao, a passionate Graphic Designer based in Azamgarh, Uttar Pradesh, India." },
       { property: "og:title", content: "About — Jayshuman Rao" },
-      { property: "og:description", content: "Bio, journey, and skills." },
+      { property: "og:description", content: "Bio, skills, and specializations." },
     ],
     links: [{ rel: "canonical", href: "/about" }],
   }),
