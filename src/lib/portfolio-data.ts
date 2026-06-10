@@ -30,12 +30,12 @@ export const projects: Project[] = [
 export const categories = ["All", "Logo Design", "Branding", "Social Media Posts", "Packaging", "UI Design", "Motion Graphics"];
 
 export const services = [
-  { name: "Logo Design", price: "$650", time: "5 days", features: ["3 concept directions", "Unlimited revisions", "Vector source files", "Brand guidelines mini"] },
-  { name: "Brand Identity", price: "$2,400", time: "3 weeks", features: ["Full visual system", "Logo + typography", "Color palette + textures", "60-page brand book"], featured: true },
-  { name: "Social Media Design", price: "$890/mo", time: "Ongoing", features: ["20 post templates/mo", "Story templates", "Highlight covers", "Brand-aligned grid"] },
-  { name: "UI / UX Design", price: "$3,200", time: "4 weeks", features: ["User research", "Wireframes + prototypes", "Hi-fi mockups", "Design system handoff"] },
-  { name: "Packaging Design", price: "$1,800", time: "3 weeks", features: ["Structural + surface design", "Print-ready files", "Mockup gallery", "Vendor coordination"] },
-  { name: "Motion Graphics", price: "$1,200", time: "2 weeks", features: ["Logo animation", "Social motion assets", "Source files", "4K export"] },
+  { name: "Logo Design", price: "₹2,500", time: "3–5 days", features: ["3 concept directions", "Unlimited revisions", "Vector source files", "Brand guidelines mini", "Full ownership rights"] },
+  { name: "Brand Identity", price: "₹12,000", time: "1–2 weeks", features: ["Full visual system", "Logo + typography", "Color palette + textures", "Brand guidelines", "Social media kit"], featured: true },
+  { name: "Social Media Design", price: "₹4,500/mo", time: "Ongoing", features: ["15 post templates/mo", "Story templates", "Highlight covers", "Brand-aligned grid", "Reels/shorts covers"] },
+  { name: "Website Design", price: "₹15,000", time: "2–3 weeks", features: ["Responsive design", "Modern UI/UX", "SEO-friendly structure", "Source files handoff", "1 month support"] },
+  { name: "Print Design", price: "₹3,500", time: "5–7 days", features: ["Business cards", "Brochures / Flyers", "Posters & Banners", "Print-ready files", "Vendor coordination"] },
+  { name: "Marketing Creatives", price: "₹2,000", time: "3–5 days", features: ["Ad creatives", "Email headers", "Presentation decks", "Promotional banners", "Multiple formats"] },
 ];
 
 export const skills = [
