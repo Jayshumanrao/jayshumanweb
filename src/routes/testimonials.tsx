@@ -7,7 +7,7 @@ export const Route = createFileRoute("/testimonials")({
   head: () => ({
     meta: [
       { title: "Client Reviews & Testimonials" },
-      { name: "description", content: "What clients say about working with Elara Vance — feedback from founders, CMOs, and creative directors." },
+      { name: "description", content: "What clients say about working with Jayshuman Rao — feedback from founders, CMOs, and creative directors." },
       { property: "og:title", content: "Client Reviews" },
       { property: "og:description", content: "Feedback from founders, CMOs, and creative directors." },
     ],

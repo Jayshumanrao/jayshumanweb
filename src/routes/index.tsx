@@ -1,17 +1,17 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowUpRight, Star } from "lucide-react";
-import portrait from "@/assets/designer-portrait.jpg";
+import portrait from "@/assets/jayshuman-rao.webp.asset.json";
 import { projects, testimonials } from "@/lib/portfolio-data";
 import { FadeUp, SectionHeading } from "@/components/section";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Elara Vance — Graphic Designer & Brand Strategist" },
-      { name: "description", content: "Award-winning portfolio of Elara Vance: identity systems, packaging, and digital product design for forward-thinking brands." },
-      { property: "og:title", content: "Elara Vance — Graphic Designer & Brand Strategist" },
-      { property: "og:description", content: "Award-winning portfolio of Elara Vance." },
+      { title: "Jayshuman Rao — Graphic Designer & Brand Strategist" },
+      { name: "description", content: "Award-winning portfolio of Jayshuman Rao: identity systems, packaging, and digital product design for forward-thinking brands." },
+      { property: "og:title", content: "Jayshuman Rao — Graphic Designer & Brand Strategist" },
+      { property: "og:description", content: "Award-winning portfolio of Jayshuman Rao." },
     ],
   }),
   component: Home,
@@ -94,8 +94,8 @@ function Home() {
           >
             <div className="absolute -inset-4 rotate-2 rounded-[28px] border border-brand/30" aria-hidden />
             <img
-              src={portrait}
-              alt="Portrait of Elara Vance, graphic designer and brand strategist"
+              src={portrait.url}
+              alt="Portrait of Jayshuman Rao, graphic designer and brand strategist"
               width={1024}
               height={1280}
               className="relative aspect-[4/5] w-full rounded-3xl object-cover shadow-elegant grayscale transition-all duration-700 hover:grayscale-0"
