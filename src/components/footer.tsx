@@ -8,7 +8,7 @@ export function Footer() {
           <div>
             <h2 className="font-display text-4xl font-bold leading-tight md:text-6xl">
               Let's create something{" "}
-              <span className="italic text-brand">legendary</span> together.
+              <span className="italic text-brand">amazing</span> together.
             </h2>
             <div className="mt-8 flex flex-wrap gap-6">
               <a
