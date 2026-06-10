@@ -7,9 +7,9 @@ export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
       { title: "Services & Pricing" },
-      { name: "description", content: "Identity, packaging, UI/UX, social, and motion design services with transparent pricing and timelines." },
+      { name: "description", content: "Logo design, brand identity, social media graphics, website design, print design, and marketing creatives with transparent pricing. Based in Azamgarh, India." },
       { property: "og:title", content: "Services & Pricing" },
-      { property: "og:description", content: "Transparent pricing and timelines." },
+      { property: "og:description", content: "Transparent pricing and timelines for creative design services." },
     ],
     links: [{ rel: "canonical", href: "/services" }],
   }),
@@ -67,7 +67,7 @@ function ServicesPage() {
                     : "bg-foreground text-background"
                 }`}
               >
-                Order Now
+                Get Started
                 <ArrowRight className="size-4 transition-transform group-hover/btn:translate-x-1" />
               </Link>
             </article>

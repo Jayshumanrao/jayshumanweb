@@ -8,7 +8,7 @@ export function Footer() {
           <div>
             <h2 className="font-display text-4xl font-bold leading-tight md:text-6xl">
               Let's create something{" "}
-              <span className="italic text-brand">legendary</span> together.
+              <span className="italic text-brand">amazing</span> together.
             </h2>
             <div className="mt-8 flex flex-wrap gap-6">
               <a
@@ -43,9 +43,9 @@ export function Footer() {
                 Socials
               </h3>
               <ul className="space-y-3 text-sm font-medium">
-                <li><a href="#" className="hover:text-brand">Dribbble</a></li>
+                <li><a href="https://www.instagram.com/jayshuman_rao/" target="_blank" rel="noopener noreferrer" className="hover:text-brand">Instagram</a></li>
                 <li><a href="#" className="hover:text-brand">Behance</a></li>
-                <li><a href="#" className="hover:text-brand">Instagram</a></li>
+                <li><a href="#" className="hover:text-brand">Dribbble</a></li>
                 <li><a href="#" className="hover:text-brand">LinkedIn</a></li>
               </ul>
             </div>

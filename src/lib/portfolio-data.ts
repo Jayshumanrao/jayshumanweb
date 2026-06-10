@@ -30,39 +30,39 @@ export const projects: Project[] = [
 export const categories = ["All", "Logo Design", "Branding", "Social Media Posts", "Packaging", "UI Design", "Motion Graphics"];
 
 export const services = [
-  { name: "Logo Design", price: "$650", time: "5 days", features: ["3 concept directions", "Unlimited revisions", "Vector source files", "Brand guidelines mini"] },
-  { name: "Brand Identity", price: "$2,400", time: "3 weeks", features: ["Full visual system", "Logo + typography", "Color palette + textures", "60-page brand book"], featured: true },
-  { name: "Social Media Design", price: "$890/mo", time: "Ongoing", features: ["20 post templates/mo", "Story templates", "Highlight covers", "Brand-aligned grid"] },
-  { name: "UI / UX Design", price: "$3,200", time: "4 weeks", features: ["User research", "Wireframes + prototypes", "Hi-fi mockups", "Design system handoff"] },
-  { name: "Packaging Design", price: "$1,800", time: "3 weeks", features: ["Structural + surface design", "Print-ready files", "Mockup gallery", "Vendor coordination"] },
-  { name: "Motion Graphics", price: "$1,200", time: "2 weeks", features: ["Logo animation", "Social motion assets", "Source files", "4K export"] },
+  { name: "Logo Design", price: "₹2,500", time: "3–5 days", features: ["3 concept directions", "Unlimited revisions", "Vector source files", "Brand guidelines mini", "Full ownership rights"] },
+  { name: "Brand Identity", price: "₹12,000", time: "1–2 weeks", features: ["Full visual system", "Logo + typography", "Color palette + textures", "Brand guidelines", "Social media kit"], featured: true },
+  { name: "Social Media Design", price: "₹4,500/mo", time: "Ongoing", features: ["15 post templates/mo", "Story templates", "Highlight covers", "Brand-aligned grid", "Reels/shorts covers"] },
+  { name: "Website Design", price: "₹15,000", time: "2–3 weeks", features: ["Responsive design", "Modern UI/UX", "SEO-friendly structure", "Source files handoff", "1 month support"] },
+  { name: "Print Design", price: "₹3,500", time: "5–7 days", features: ["Business cards", "Brochures / Flyers", "Posters & Banners", "Print-ready files", "Vendor coordination"] },
+  { name: "Marketing Creatives", price: "₹2,000", time: "3–5 days", features: ["Ad creatives", "Email headers", "Presentation decks", "Promotional banners", "Multiple formats"] },
 ];
 
 export const skills = [
-  { name: "Photoshop", level: 95 },
-  { name: "Illustrator", level: 92 },
-  { name: "Figma", level: 96 },
-  { name: "Adobe XD", level: 84 },
-  { name: "InDesign", level: 88 },
-  { name: "After Effects", level: 80 },
-  { name: "Branding Strategy", level: 94 },
-  { name: "Typography", level: 90 },
+  { name: "Adobe Photoshop", level: 96 },
+  { name: "Adobe Illustrator", level: 94 },
+  { name: "Figma", level: 90 },
+  { name: "Canva", level: 92 },
+  { name: "Logo Design", level: 95 },
+  { name: "Brand Identity", level: 93 },
+  { name: "Social Media Graphics", level: 91 },
+  { name: "Print Design", level: 88 },
 ];
 
 export const testimonials = [
-  { name: "Sarah Jenkins", title: "CMO, Lumina Global", quote: "Jayshuman has a rare ability to translate complex business values into simple, beautiful visual systems. Our brand has never felt more cohesive.", rating: 5 },
-  { name: "Marcus Thorne", title: "CEO, Helix Digital", quote: "She doesn't just design — she builds future-proof ecosystems. The clarity and craft she brought to our identity is unmatched.", rating: 5 },
-  { name: "Amelia Cho", title: "Founder, Aura Wellness", quote: "Working with Jayshuman was effortless. Strategic, detail-obsessed, and on-time. Our packaging now flies off the shelves.", rating: 5 },
-  { name: "David Park", title: "Head of Product, Verve", quote: "The product design work translated directly into a 40% increase in our app retention. Numbers don't lie.", rating: 5 },
-  { name: "Priya Anand", title: "Creative Director, Epoch", quote: "A masterclass in editorial systems. Every spread feels intentional, every detail considered.", rating: 5 },
-  { name: "Tomás Reyes", title: "Founder, Form Studio", quote: "She understood our architectural ethos within the first call. The identity she crafted is timeless.", rating: 5 },
+  { name: "Rahul Sharma", title: "Founder, TechStart India", quote: "Jayshuman has a rare ability to translate complex business values into simple, beautiful visual systems. Our brand has never felt more cohesive.", rating: 5 },
+  { name: "Ananya Patel", title: "CEO, Glow Wellness", quote: "Working with Jayshuman was effortless. Strategic, detail-obsessed, and on-time. Our packaging and social creatives now truly stand out.", rating: 5 },
+  { name: "Vikram Mehta", title: "Director, Mehta Enterprises", quote: "He doesn't just design — he builds future-proof brand ecosystems. The clarity and craft he brought to our identity is unmatched.", rating: 5 },
+  { name: "Priya Singh", title: "Marketing Head, Urban Style", quote: "Our social media engagement increased by 60% after Jayshuman redesigned our content. His understanding of modern trends is incredible.", rating: 5 },
+  { name: "Amit Kumar", title: "Founder, BuildRight Construction", quote: "A masterclass in logo and brand design. Every element feels intentional, every detail considered. Highly recommended.", rating: 5 },
+  { name: "Sneha Gupta", title: "Owner, The Coffee House", quote: "He understood our vision within the first call. The brand identity he crafted is timeless and perfectly represents us.", rating: 5 },
 ];
 
 export const timeline = [
-  { year: "2024", title: "Independent Creative Director", subtitle: "Selected freelance work for global brands across wellness, tech, and culture." },
-  { year: "2022", title: "Senior Designer at Pentagram", subtitle: "Led brand systems for Fortune 500 clients including identity and editorial." },
-  { year: "2019", title: "Designer at Wieden+Kennedy", subtitle: "Worked across campaigns for Nike, Spotify, and emerging consumer startups." },
-  { year: "2016", title: "BFA, Rhode Island School of Design", subtitle: "Graduated with honors in Graphic Design. Recipient of the AIGA student award." },
+  { year: "2024", title: "Independent Graphic Designer", subtitle: "Serving clients across India and globally with branding, social media, and print design." },
+  { year: "2022", title: "Freelance Brand Designer", subtitle: "Started full-time freelance journey focusing on logo design and brand identity for startups and SMEs." },
+  { year: "2020", title: "Digital Design Specialist", subtitle: "Expanded into social media graphics, marketing creatives, and modern digital experiences." },
+  { year: "2018", title: "Began Design Journey", subtitle: "Discovered passion for visual storytelling and started honing skills in Adobe Creative Suite." },
 ];
 
 export const posts = [
