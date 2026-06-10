@@ -8,10 +8,10 @@ import { FadeUp, SectionHeading } from "@/components/section";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Jayshuman Rao — Graphic Designer & Brand Strategist" },
-      { name: "description", content: "Award-winning portfolio of Jayshuman Rao: identity systems, packaging, and digital product design for forward-thinking brands." },
-      { property: "og:title", content: "Jayshuman Rao — Graphic Designer & Brand Strategist" },
-      { property: "og:description", content: "Award-winning portfolio of Jayshuman Rao." },
+      { title: "Jayshuman Rao — Graphic Designer & Brand Identity Specialist" },
+      { name: "description", content: "Transforming Ideas into Powerful Visual Experiences. Creative designs that elevate brands, engage audiences, and leave lasting impressions." },
+      { property: "og:title", content: "Jayshuman Rao — Graphic Designer & Brand Identity Specialist" },
+      { property: "og:description", content: "Transforming Ideas into Powerful Visual Experiences." },
     ],
   }),
   component: Home,
