@@ -107,10 +107,10 @@ function ContactPage() {
         <FadeUp delay={0.1}>
           <div className="space-y-4">
             {[
-              { Icon: Mail, label: "Email", value: "hello@creativepro.design", href: "mailto:hello@creativepro.design" },
+              { Icon: Mail, label: "Email", value: "jayshumanrao2010@gmail.com", href: "mailto:jayshumanrao2010@gmail.com" },
               { Icon: MessageCircle, label: "WhatsApp", value: "+44 7700 900123", href: "https://wa.me/447700900123" },
-              { Icon: Linkedin, label: "LinkedIn", value: "@elaravance", href: "#" },
-              { Icon: Instagram, label: "Instagram", value: "@elara.designs", href: "#" },
+              { Icon: Linkedin, label: "LinkedIn", value: "@jayshumanrao", href: "#" },
+              { Icon: Instagram, label: "Instagram", value: "@jayshuman.rao", href: "#" },
               { Icon: MapPin, label: "Studio", value: "Shoreditch, London", href: "#" },
             ].map(({ Icon, label, value, href }) => (
               <a

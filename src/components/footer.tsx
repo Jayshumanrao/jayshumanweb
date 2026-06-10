@@ -12,10 +12,10 @@ export function Footer() {
             </h2>
             <div className="mt-8 flex flex-wrap gap-6">
               <a
-                href="mailto:hello@creativepro.design"
+                href="mailto:jayshumanrao2010@gmail.com"
                 className="border-b-2 border-brand pb-1 text-base font-medium transition-colors hover:text-brand"
               >
-                hello@creativepro.design
+                jayshumanrao2010@gmail.com
               </a>
               <Link
                 to="/contact"
