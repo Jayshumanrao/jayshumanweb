@@ -6,9 +6,9 @@ import { skills, timeline } from "@/lib/portfolio-data";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Elara Vance" },
-      { name: "description", content: "Bio, career journey, education, and design skills of Elara Vance, graphic designer and brand strategist." },
-      { property: "og:title", content: "About — Elara Vance" },
+      { title: "About — Jayshuman Rao" },
+      { name: "description", content: "Bio, career journey, education, and design skills of Jayshuman Rao, graphic designer and brand strategist." },
+      { property: "og:title", content: "About — Jayshuman Rao" },
       { property: "og:description", content: "Bio, journey, and skills." },
     ],
     links: [{ rel: "canonical", href: "/about" }],
@@ -29,7 +29,7 @@ function AboutPage() {
       <FadeUp delay={0.1}>
         <div className="mt-12 grid gap-12 text-lg leading-relaxed text-ink-muted md:grid-cols-2">
           <p>
-            I'm Elara — a graphic designer and brand strategist based in London. I work with founders and teams who care
+            I'm Jayshuman — a graphic designer and brand strategist based in London. I work with founders and teams who care
             deeply about how their work looks, feels, and reads. My practice spans identity systems, packaging,
             editorial, and digital product design.
           </p>

@@ -50,9 +50,9 @@ export const skills = [
 ];
 
 export const testimonials = [
-  { name: "Sarah Jenkins", title: "CMO, Lumina Global", quote: "Elara has a rare ability to translate complex business values into simple, beautiful visual systems. Our brand has never felt more cohesive.", rating: 5 },
+  { name: "Sarah Jenkins", title: "CMO, Lumina Global", quote: "Jayshuman has a rare ability to translate complex business values into simple, beautiful visual systems. Our brand has never felt more cohesive.", rating: 5 },
   { name: "Marcus Thorne", title: "CEO, Helix Digital", quote: "She doesn't just design — she builds future-proof ecosystems. The clarity and craft she brought to our identity is unmatched.", rating: 5 },
-  { name: "Amelia Cho", title: "Founder, Aura Wellness", quote: "Working with Elara was effortless. Strategic, detail-obsessed, and on-time. Our packaging now flies off the shelves.", rating: 5 },
+  { name: "Amelia Cho", title: "Founder, Aura Wellness", quote: "Working with Jayshuman was effortless. Strategic, detail-obsessed, and on-time. Our packaging now flies off the shelves.", rating: 5 },
   { name: "David Park", title: "Head of Product, Verve", quote: "The product design work translated directly into a 40% increase in our app retention. Numbers don't lie.", rating: 5 },
   { name: "Priya Anand", title: "Creative Director, Epoch", quote: "A masterclass in editorial systems. Every spread feels intentional, every detail considered.", rating: 5 },
   { name: "Tomás Reyes", title: "Founder, Form Studio", quote: "She understood our architectural ethos within the first call. The identity she crafted is timeless.", rating: 5 },

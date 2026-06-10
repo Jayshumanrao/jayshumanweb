@@ -53,7 +53,7 @@ export function Footer() {
         </div>
 
         <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-background/10 pt-8 text-sm text-background/50 md:flex-row">
-          <p>© {new Date().getFullYear()} Creative Portfolio Pro. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Jayshuman Rao. All rights reserved.</p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-background">Privacy</a>
             <a href="#" className="hover:text-background">Terms</a>
