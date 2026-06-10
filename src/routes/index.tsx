@@ -94,7 +94,7 @@ function Home() {
           >
             <div className="absolute -inset-4 rotate-2 rounded-[28px] border border-brand/30" aria-hidden />
             <img
-              src={portrait}
+              src={portrait.url}
               alt="Portrait of Jayshuman Rao, graphic designer and brand strategist"
               width={1024}
               height={1280}
