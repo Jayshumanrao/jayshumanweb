@@ -49,10 +49,10 @@ function Home() {
               transition={{ duration: 0.8, delay: 0.1, ease: [0.19, 1, 0.22, 1] }}
               className="font-display mt-6 text-5xl font-bold leading-[0.95] md:text-7xl lg:text-[5.5rem]"
             >
-              Graphic <br />
-              Designer <span className="text-brand">&</span>
+              Transforming <br />
+              Ideas into <span className="text-brand">Powerful</span>
               <br />
-              Brand Strategist
+              Visual Experiences
             </motion.h1>
 
             <motion.p
@@ -61,7 +61,7 @@ function Home() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="mt-8 max-w-md text-lg leading-relaxed text-ink-muted"
             >
-              I craft elevated visual identities and digital experiences for brands that refuse to be ordinary.
+              Creative designs that elevate brands, engage audiences, and leave lasting impressions.
             </motion.p>
 
             <motion.div
