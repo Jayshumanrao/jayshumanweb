@@ -1,14 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { z } from "zod";
-import { Mail, MessageCircle, Linkedin, Instagram, MapPin, Check } from "lucide-react";
+import { Mail, MessageCircle, Instagram, MapPin, Check } from "lucide-react";
 import { FadeUp, SectionHeading } from "@/components/section";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact — Start a Project" },
-      { name: "description", content: "Get in touch to start a project. Available for select freelance engagements in branding, packaging, and digital product design." },
+      { name: "description", content: "Get in touch with Jayshuman Rao for branding, logo design, social media graphics, and creative visual projects. Based in Azamgarh, India." },
       { property: "og:title", content: "Contact — Start a Project" },
       { property: "og:description", content: "Get in touch to start a project." },
     ],
@@ -27,10 +27,10 @@ const schema = z.object({
 });
 
 const faqs = [
-  { q: "What is your typical project timeline?", a: "Most identity engagements run 3–6 weeks from kickoff to handoff. Larger systems take 8–12 weeks." },
-  { q: "Do you work with early-stage startups?", a: "Yes — I love working with founders pre-launch and offer a focused brand sprint for early-stage teams." },
-  { q: "What's included in your final deliverables?", a: "Vector source files, exports in every format, a brand book, and 30 days of post-handoff support." },
-  { q: "Do you take on retainer work?", a: "Selectively. I work with 2–3 retainer clients per quarter on ongoing creative direction." },
+  { q: "What is your typical project timeline?", a: "Most logo and branding projects run 3–7 days. Social media packages and larger systems take 1–2 weeks depending on scope." },
+  { q: "Do you work with startups and small businesses?", a: "Absolutely — I love working with startups, small businesses, and entrepreneurs. I offer flexible packages tailored to your budget." },
+  { q: "What's included in your final deliverables?", a: "All source files, export formats (PNG, JPG, PDF, SVG), and usage guidelines. I make sure you have everything you need." },
+  { q: "How do we communicate during the project?", a: "Fast and clear communication via email, WhatsApp, or video call. I keep you updated at every stage." },
 ];
 
 function ContactPage() {
@@ -57,7 +57,7 @@ function ContactPage() {
       <FadeUp>
         <p className="mb-6 text-xs font-bold uppercase tracking-[0.3em] text-brand">Contact</p>
         <h1 className="font-display max-w-4xl text-5xl font-bold leading-[1.05] md:text-7xl">
-          Let's build something <span className="italic text-brand">considered</span>.
+          Let's create something <span className="italic text-brand">amazing</span> together.
         </h1>
       </FadeUp>
 
@@ -70,7 +70,7 @@ function ContactPage() {
                 <Check className="size-6" />
               </div>
               <h2 className="font-display text-2xl font-bold">Message sent</h2>
-              <p className="mt-3 text-ink-muted">Thanks — I'll be in touch within two business days.</p>
+              <p className="mt-3 text-ink-muted">Thanks — I'll be in touch within one business day.</p>
             </div>
           ) : (
             <form onSubmit={onSubmit} className="rounded-3xl border border-border bg-card p-8 md:p-10" noValidate>
@@ -79,9 +79,9 @@ function ContactPage() {
                 <Field label="Email" name="email" type="email" error={errors.email} />
                 <Field label="Phone (optional)" name="phone" type="tel" error={errors.phone} />
                 <Select label="Project type" name="projectType" error={errors.projectType}
-                  options={["Branding", "Packaging", "UI / UX", "Social", "Motion", "Other"]} />
+                  options={["Logo Design", "Brand Identity", "Social Media Graphics", "Website Design", "Print Design", "Marketing Creatives", "Other"]} />
                 <Select label="Budget" name="budget" error={errors.budget}
-                  options={["< $5k", "$5k – $15k", "$15k – $40k", "$40k+"]} />
+                  options={["< ₹5,000", "₹5,000 – ₹15,000", "₹15,000 – ₹40,000", "₹40,000+"]} />
               </div>
               <div className="mt-5">
                 <label className="mb-2 block text-xs font-bold uppercase tracking-widest text-ink-muted">Message</label>
@@ -108,14 +108,15 @@ function ContactPage() {
           <div className="space-y-4">
             {[
               { Icon: Mail, label: "Email", value: "jayshumanrao2010@gmail.com", href: "mailto:jayshumanrao2010@gmail.com" },
-              { Icon: MessageCircle, label: "WhatsApp", value: "+44 7700 900123", href: "https://wa.me/447700900123" },
-              { Icon: Linkedin, label: "LinkedIn", value: "@jayshumanrao", href: "#" },
-              { Icon: Instagram, label: "Instagram", value: "@jayshuman.rao", href: "#" },
-              { Icon: MapPin, label: "Studio", value: "Shoreditch, London", href: "#" },
+              { Icon: MessageCircle, label: "WhatsApp", value: "+91 XXXXXXXXXX", href: "https://wa.me/91XXXXXXXXXX" },
+              { Icon: Instagram, label: "Instagram", value: "@jayshuman_rao", href: "https://www.instagram.com/jayshuman_rao/" },
+              { Icon: MapPin, label: "Location", value: "Azamgarh, Uttar Pradesh, India", href: "#" },
             ].map(({ Icon, label, value, href }) => (
               <a
                 key={label}
                 href={href}
+                target={href.startsWith("http") ? "_blank" : undefined}
+                rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
                 className="flex items-center gap-4 rounded-2xl border border-border bg-card p-5 transition-all hover:border-foreground"
               >
                 <div className="grid size-12 shrink-0 place-items-center rounded-xl bg-brand-soft text-brand">
