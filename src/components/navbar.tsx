@@ -10,6 +10,7 @@ const nav = [
   { to: "/services", label: "Services" },
   { to: "/testimonials", label: "Reviews" },
   { to: "/blog", label: "Journal" },
+  { to: "/zomato", label: "Zomato AI" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
