@@ -1,7 +1,10 @@
-import { Link } from "@tanstack/react-router";
-import { Menu, Moon, Sun, X } from "lucide-react";
+import { Link, useNavigate } from "@tanstack/react-router";
+import { LogOut, Menu, Moon, Sun, X } from "lucide-react";
 import { useState } from "react";
+import { toast } from "sonner";
 import { useTheme } from "./theme-provider";
+import { useAuth } from "@/hooks/use-auth";
+import { supabase } from "@/integrations/supabase/client";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -16,7 +19,15 @@ const nav = [
 
 export function Navbar() {
   const { theme, toggle } = useTheme();
+  const { user } = useAuth();
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
+
+  async function handleSignOut() {
+    await supabase.auth.signOut();
+    toast.success("Signed out");
+    navigate({ to: "/auth" });
+  }
 
   return (
     <header className="fixed top-4 left-1/2 z-50 w-[94%] max-w-6xl -translate-x-1/2">
@@ -47,12 +58,21 @@ export function Navbar() {
           >
             {theme === "dark" ? <Sun className="size-4" /> : <Moon className="size-4" />}
           </button>
-          <Link
-            to="/contact"
-            className="hidden rounded-full bg-foreground px-5 py-2.5 text-sm font-semibold text-background transition-colors hover:bg-brand sm:inline-flex"
-          >
-            Hire Me
-          </Link>
+          {user ? (
+            <button
+              onClick={handleSignOut}
+              className="hidden items-center gap-1.5 rounded-full bg-foreground px-5 py-2.5 text-sm font-semibold text-background transition-colors hover:bg-brand sm:inline-flex"
+            >
+              <LogOut className="size-4" /> Sign out
+            </button>
+          ) : (
+            <Link
+              to="/auth"
+              className="hidden rounded-full bg-foreground px-5 py-2.5 text-sm font-semibold text-background transition-colors hover:bg-brand sm:inline-flex"
+            >
+              Sign in
+            </Link>
+          )}
           <button
             onClick={() => setOpen((v) => !v)}
             aria-label="Toggle menu"
