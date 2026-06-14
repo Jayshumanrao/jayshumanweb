@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import { useTheme } from "./theme-provider";
 import { useAuth } from "@/hooks/use-auth";
 import { supabase } from "@/integrations/supabase/client";
+import jrLogo from "@/assets/jr-logo.png.asset.json";
 
 const nav = [
   { to: "/", label: "Home" },
