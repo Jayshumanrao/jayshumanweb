@@ -105,16 +105,20 @@ function AuthPage() {
           style={{ transformPerspective: 1000 }}
           className="w-full max-w-md"
         >
-          {/* Glowing icon */}
-          <div className="mb-6 flex justify-center">
+          {/* Glowing logo + name */}
+          <div className="mb-6 flex flex-col items-center gap-3">
             <motion.div
               animate={{ y: [0, -6, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              className="relative grid size-20 place-items-center rounded-3xl bg-gradient-to-br from-fuchsia-500 via-violet-500 to-indigo-500 shadow-[0_0_60px_rgba(168,85,247,0.6),0_0_120px_rgba(168,85,247,0.35)]"
+              className="relative grid size-24 place-items-center rounded-3xl bg-gradient-to-br from-fuchsia-500/30 via-violet-500/30 to-indigo-500/30 p-2 shadow-[0_0_60px_rgba(168,85,247,0.6),0_0_120px_rgba(168,85,247,0.35)]"
             >
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-fuchsia-400/40 to-indigo-400/40 blur-xl" />
-              <Sparkles className="relative size-9 text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]" />
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-fuchsia-400/30 to-indigo-400/30 blur-xl" />
+              <img src={jrLogo.url} alt="Jayshuman Rao logo" className="relative size-20 object-contain drop-shadow-[0_0_12px_rgba(168,85,247,0.8)]" />
             </motion.div>
+            <div className="text-center">
+              <p className="font-display text-xl font-bold tracking-tight text-white">Jayshuman Rao</p>
+              <p className="text-xs uppercase tracking-[0.25em] text-white/50">Design Studio</p>
+            </div>
           </div>
 
           <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-8 shadow-[0_30px_80px_-20px_rgba(124,58,237,0.45)] backdrop-blur-2xl">
