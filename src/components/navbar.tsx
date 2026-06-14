@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import { useTheme } from "./theme-provider";
 import { useAuth } from "@/hooks/use-auth";
 import { supabase } from "@/integrations/supabase/client";
+import jrLogo from "@/assets/jr-logo.png.asset.json";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -32,8 +33,9 @@ export function Navbar() {
   return (
     <header className="fixed top-4 left-1/2 z-50 w-[94%] max-w-6xl -translate-x-1/2">
       <div className="glass flex items-center justify-between rounded-full px-5 py-3 shadow-elegant">
-        <Link to="/" className="font-display text-lg font-bold tracking-tight">
-          Jayshuman<span className="text-brand">.</span>Rao
+        <Link to="/" className="flex items-center gap-2 font-display text-lg font-bold tracking-tight">
+          <img src={jrLogo.url} alt="JR logo" className="size-8 object-contain" />
+          <span>Jayshuman<span className="text-brand">.</span>Rao</span>
         </Link>
 
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
