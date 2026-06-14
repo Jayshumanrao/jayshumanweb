@@ -1,11 +1,12 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Sparkles, Mail, Lock, User as UserIcon, Loader2 } from "lucide-react";
+import { Mail, Lock, User as UserIcon, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { lovable } from "@/integrations/lovable";
 import { useAuth } from "@/hooks/use-auth";
+import jrLogo from "@/assets/jr-logo.png.asset.json";
 
 export const Route = createFileRoute("/auth")({
   head: () => ({
