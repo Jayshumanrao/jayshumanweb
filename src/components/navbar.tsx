@@ -8,14 +8,13 @@ import { supabase } from "@/integrations/supabase/client";
 import jrLogo from "@/assets/jr-logo.png.asset.json";
 
 const nav = [
-  { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
-  { to: "/portfolio", label: "Work" },
-  { to: "/services", label: "Services" },
-  { to: "/testimonials", label: "Reviews" },
-  { to: "/blog", label: "Journal" },
-  { to: "/zomato", label: "Zomato AI" },
-  { to: "/contact", label: "Contact" },
+  { to: "/", label: "Home", hash: "" },
+  { to: "/about", label: "About", hash: "" },
+  { to: "/", label: "Services", hash: "#services" },
+  { to: "/", label: "Portfolio", hash: "#portfolio" },
+  { to: "/", label: "Pricing", hash: "#pricing" },
+  { to: "/", label: "Testimonials", hash: "#testimonials" },
+  { to: "/", label: "Contact", hash: "#contact" },
 ] as const;
 
 export function Navbar() {
