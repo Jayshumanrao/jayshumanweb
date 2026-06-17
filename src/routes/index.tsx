@@ -20,7 +20,6 @@ import {
   Search,
   ClipboardList,
   Rocket,
-  Wrench,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { testimonials } from "@/lib/portfolio-data";
