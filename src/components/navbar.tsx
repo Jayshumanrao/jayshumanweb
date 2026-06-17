@@ -38,17 +38,27 @@ export function Navbar() {
         </Link>
 
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
-          {nav.map((n) => (
-            <Link
-              key={n.to}
-              to={n.to}
-              className="text-sm font-medium text-ink-muted transition-colors hover:text-foreground"
-              activeProps={{ className: "text-foreground" }}
-              activeOptions={{ exact: n.to === "/" }}
-            >
-              {n.label}
-            </Link>
-          ))}
+          {nav.map((n, i) =>
+            n.hash ? (
+              <a
+                key={i}
+                href={n.hash}
+                className="story-link text-sm font-medium text-ink-muted transition-colors hover:text-foreground"
+              >
+                {n.label}
+              </a>
+            ) : (
+              <Link
+                key={i}
+                to={n.to}
+                className="story-link text-sm font-medium text-ink-muted transition-colors hover:text-foreground"
+                activeProps={{ className: "text-foreground" }}
+                activeOptions={{ exact: n.to === "/" }}
+              >
+                {n.label}
+              </Link>
+            )
+          )}
         </nav>
 
         <div className="flex items-center gap-2">
@@ -87,24 +97,35 @@ export function Navbar() {
       {open && (
         <div className="glass mt-2 rounded-3xl p-4 shadow-elegant lg:hidden">
           <nav className="flex flex-col gap-1" aria-label="Mobile">
-            {nav.map((n) => (
-              <Link
-                key={n.to}
-                to={n.to}
-                onClick={() => setOpen(false)}
-                className="rounded-2xl px-4 py-3 text-sm font-medium text-ink-muted transition-colors hover:bg-muted hover:text-foreground"
-                activeProps={{ className: "bg-muted text-foreground" }}
-              >
-                {n.label}
-              </Link>
-            ))}
-            <Link
-              to="/contact"
+            {nav.map((n, i) =>
+              n.hash ? (
+                <a
+                  key={i}
+                  href={n.hash}
+                  onClick={() => setOpen(false)}
+                  className="rounded-2xl px-4 py-3 text-sm font-medium text-ink-muted transition-colors hover:bg-muted hover:text-foreground"
+                >
+                  {n.label}
+                </a>
+              ) : (
+                <Link
+                  key={i}
+                  to={n.to}
+                  onClick={() => setOpen(false)}
+                  className="rounded-2xl px-4 py-3 text-sm font-medium text-ink-muted transition-colors hover:bg-muted hover:text-foreground"
+                  activeProps={{ className: "bg-muted text-foreground" }}
+                >
+                  {n.label}
+                </Link>
+              )
+            )}
+            <a
+              href="#contact"
               onClick={() => setOpen(false)}
-              className="mt-2 rounded-2xl bg-foreground px-4 py-3 text-center text-sm font-semibold text-background"
+              className="mt-2 rounded-2xl bg-gradient-to-r from-brand to-gold px-4 py-3 text-center text-sm font-semibold text-background"
             >
               Hire Me
-            </Link>
+            </a>
           </nav>
         </div>
       )}
