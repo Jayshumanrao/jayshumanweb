@@ -24,6 +24,7 @@ import {
 import { useEffect, useRef, useState } from "react";
 import { testimonials } from "@/lib/portfolio-data";
 import { FadeUp, SectionHeading } from "@/components/section";
+import founderAsset from "@/assets/jayshuman-founder.webp.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
