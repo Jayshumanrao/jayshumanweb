@@ -288,10 +288,10 @@ function Home() {
             <div className="absolute inset-0 animate-spin-slow rounded-full border border-dashed border-gold/30" />
             <div className="absolute inset-8 animate-spin-slow rounded-full border border-dashed border-brand/30 [animation-direction:reverse]" />
 
-            <div className="absolute inset-16 grid place-items-center">
+            <div className="absolute inset-8 sm:inset-12 lg:inset-16 grid place-items-center">
               <div className="relative size-full">
                 <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-brand via-brand/60 to-gold blur-2xl opacity-60" />
-                <Tilt className="relative grid size-full place-items-center rounded-3xl glass-strong shadow-elegant p-6">
+                <Tilt className="relative grid size-full place-items-center rounded-3xl glass-strong shadow-elegant p-4 sm:p-6">
                   <div className="text-center">
                     <div className="relative mx-auto size-40 overflow-hidden rounded-2xl ring-2 ring-gold/40 shadow-glow">
                       <img
