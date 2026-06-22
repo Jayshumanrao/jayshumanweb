@@ -24,6 +24,7 @@ import {
 import { useEffect, useRef, useState } from "react";
 import { testimonials } from "@/lib/portfolio-data";
 import { FadeUp, SectionHeading } from "@/components/section";
+import founderAsset from "@/assets/jayshuman-founder.webp.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -290,10 +291,18 @@ function Home() {
             <div className="absolute inset-16 grid place-items-center">
               <div className="relative size-full">
                 <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-brand via-brand/60 to-gold blur-2xl opacity-60" />
-                <Tilt className="relative grid size-full place-items-center rounded-3xl glass-strong shadow-elegant">
+                <Tilt className="relative grid size-full place-items-center rounded-3xl glass-strong shadow-elegant p-6">
                   <div className="text-center">
-                    <div className="font-display text-7xl font-extrabold text-gradient-brand">JR</div>
-                    <p className="mt-3 text-xs font-bold uppercase tracking-[0.3em] text-gold">Design Studio</p>
+                    <div className="relative mx-auto size-40 overflow-hidden rounded-2xl ring-2 ring-gold/40 shadow-glow">
+                      <img
+                        src={founderAsset.url}
+                        alt="Jayshuman Rao — Founder of JR Design Studio"
+                        className="size-full object-cover"
+                      />
+                    </div>
+                    <p className="mt-5 text-xs font-bold uppercase tracking-[0.3em] text-gold">JR Design Studio</p>
+                    <p className="mt-2 font-display text-xl font-bold text-foreground">(Jayshuman Rao)</p>
+                    <p className="mt-1 text-sm font-medium text-ink-muted">Founder</p>
                   </div>
                 </Tilt>
               </div>
