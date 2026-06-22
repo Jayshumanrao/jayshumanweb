@@ -293,7 +293,7 @@ function Home() {
                 <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-brand via-brand/60 to-gold blur-2xl opacity-60" />
                 <Tilt className="relative grid size-full place-items-center rounded-3xl glass-strong shadow-elegant p-4 sm:p-6">
                   <div className="text-center">
-                    <div className="relative mx-auto size-40 overflow-hidden rounded-2xl ring-2 ring-gold/40 shadow-glow">
+                    <div className="relative mx-auto size-32 sm:size-36 lg:size-40 overflow-hidden rounded-2xl ring-2 ring-gold/40 shadow-glow">
                       <img
                         src={founderAsset.url}
                         alt="Jayshuman Rao — Founder of JR Design Studio"
