@@ -288,12 +288,12 @@ function Home() {
             <div className="absolute inset-0 animate-spin-slow rounded-full border border-dashed border-gold/30" />
             <div className="absolute inset-8 animate-spin-slow rounded-full border border-dashed border-brand/30 [animation-direction:reverse]" />
 
-            <div className="absolute inset-16 grid place-items-center">
+            <div className="absolute inset-8 sm:inset-12 lg:inset-16 grid place-items-center">
               <div className="relative size-full">
                 <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-brand via-brand/60 to-gold blur-2xl opacity-60" />
-                <Tilt className="relative grid size-full place-items-center rounded-3xl glass-strong shadow-elegant p-6">
+                <Tilt className="relative grid size-full place-items-center rounded-3xl glass-strong shadow-elegant p-4 sm:p-6">
                   <div className="text-center">
-                    <div className="relative mx-auto size-40 overflow-hidden rounded-2xl ring-2 ring-gold/40 shadow-glow">
+                    <div className="relative mx-auto size-32 sm:size-36 lg:size-40 overflow-hidden rounded-2xl ring-2 ring-gold/40 shadow-glow">
                       <img
                         src={founderAsset.url}
                         alt="Jayshuman Rao — Founder of JR Design Studio"
@@ -309,14 +309,14 @@ function Home() {
             </div>
 
             {/* floating icons */}
-            <div className="absolute -top-2 right-6 grid size-14 animate-float-y place-items-center rounded-2xl glass-strong text-brand shadow-glow">
-              <Code2 className="size-6" />
+            <div className="absolute -top-2 right-2 sm:right-6 grid size-10 sm:size-12 lg:size-14 animate-float-y place-items-center rounded-2xl glass-strong text-brand shadow-glow">
+              <Code2 className="size-5 sm:size-6" />
             </div>
-            <div className="absolute bottom-4 -left-2 grid size-14 animate-float-y place-items-center rounded-2xl glass-strong text-gold shadow-gold [animation-delay:-2s]">
-              <Palette className="size-6" />
+            <div className="absolute bottom-4 -left-2 grid size-10 sm:size-12 lg:size-14 animate-float-y place-items-center rounded-2xl glass-strong text-gold shadow-gold [animation-delay:-2s]">
+              <Palette className="size-5 sm:size-6" />
             </div>
-            <div className="absolute top-1/2 -right-4 grid size-12 animate-float-y place-items-center rounded-2xl glass-strong text-brand [animation-delay:-4s]">
-              <Sparkles className="size-5" />
+            <div className="absolute top-1/2 -right-2 sm:-right-4 grid size-9 sm:size-10 lg:size-12 animate-float-y place-items-center rounded-2xl glass-strong text-brand [animation-delay:-4s]">
+              <Sparkles className="size-4 sm:size-5" />
             </div>
           </motion.div>
         </div>
