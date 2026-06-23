@@ -25,6 +25,7 @@ import { useEffect, useRef, useState } from "react";
 import { testimonials } from "@/lib/portfolio-data";
 import { FadeUp, SectionHeading } from "@/components/section";
 import founderAsset from "@/assets/jayshuman-founder.webp.asset.json";
+import bannerAsset from "@/assets/jayshuman-banner.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -320,6 +321,25 @@ function Home() {
             </div>
           </motion.div>
         </div>
+      </section>
+
+      {/* ============ BANNER ============ */}
+      <section className="mx-auto max-w-7xl px-6 pb-6 md:pb-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.9, ease: [0.19, 1, 0.22, 1] }}
+          className="relative overflow-hidden rounded-2xl border border-gold/20 shadow-glow md:rounded-3xl"
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-brand/10 via-transparent to-gold/10" />
+          <img
+            src={bannerAsset.url}
+            alt="Jayshuman Rao — Graphic Designer, Web Developer & AI Expert"
+            className="relative z-10 aspect-[4/1] w-full object-cover"
+            loading="eager"
+          />
+        </motion.div>
       </section>
 
       {/* ============ STATS ============ */}
