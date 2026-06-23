@@ -230,7 +230,7 @@ function Home() {
               transition={{ duration: 0.9, delay: 0.1, ease: [0.19, 1, 0.22, 1] }}
               className="font-display mt-6 text-5xl font-extrabold leading-[1] md:text-7xl lg:text-[5rem]"
             >
-              Premium Websites & <span className="text-gradient-gold">Graphic Designs</span> That Grow Your Business
+              <span className="inline-block rounded-xl border border-gold/40 bg-gradient-to-br from-brand/25 to-gold/25 px-3 text-gold shadow-gold">Premium</span> Websites & Graphic Designs That Grow Your Business
             </motion.h1>
 
             <motion.p
