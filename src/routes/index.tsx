@@ -323,6 +323,25 @@ function Home() {
         </div>
       </section>
 
+      {/* ============ BANNER ============ */}
+      <section className="mx-auto max-w-7xl px-6 pb-6 md:pb-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.9, ease: [0.19, 1, 0.22, 1] }}
+          className="relative overflow-hidden rounded-2xl border border-gold/20 shadow-glow md:rounded-3xl"
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-brand/10 via-transparent to-gold/10" />
+          <img
+            src={bannerAsset.url}
+            alt="Jayshuman Rao — Graphic Designer, Web Developer & AI Expert"
+            className="relative z-10 w-full object-cover"
+            loading="eager"
+          />
+        </motion.div>
+      </section>
+
       {/* ============ STATS ============ */}
       <section className="relative border-y border-border/50 bg-gradient-to-r from-navy/5 via-brand/5 to-gold/5">
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-6 py-16 md:grid-cols-4">
