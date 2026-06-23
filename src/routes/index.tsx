@@ -336,7 +336,7 @@ function Home() {
           <img
             src={bannerAsset.url}
             alt="Jayshuman Rao — Graphic Designer, Web Developer & AI Expert"
-            className="relative z-10 w-full object-cover"
+            className="relative z-10 aspect-[4/1] w-full object-cover"
             loading="eager"
           />
         </motion.div>
