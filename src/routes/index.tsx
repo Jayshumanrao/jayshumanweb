@@ -556,7 +556,7 @@ function TestimonialCarousel() {
   const t = testimonials[i];
 
   return (
-    <section id="testimonials" className="relative overflow-hidden bg-navy py-24 text-background md:py-32">
+    <section id="testimonials" className="relative overflow-hidden bg-navy py-24 text-white md:py-32">
       <div aria-hidden className="pointer-events-none absolute inset-0" style={{ background: "var(--gradient-hero)", opacity: 0.4 }} />
       <Particles />
       <div className="relative mx-auto max-w-4xl px-6">
