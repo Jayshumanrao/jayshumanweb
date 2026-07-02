@@ -292,19 +292,12 @@ function Home() {
             <div className="absolute inset-8 sm:inset-12 lg:inset-16 grid place-items-center">
               <div className="relative size-full">
                 <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-brand via-brand/60 to-gold blur-2xl opacity-60" />
-                <Tilt className="relative grid size-full place-items-center rounded-3xl glass-strong shadow-elegant p-4 sm:p-6">
-                  <div className="text-center">
-                    <div className="relative mx-auto size-32 sm:size-36 lg:size-40 overflow-hidden rounded-2xl ring-2 ring-gold/40 shadow-glow">
-                      <img
-                        src={founderAsset.url}
-                        alt="Jayshuman Rao — Founder of JR Design Studio"
-                        className="size-full object-cover"
-                      />
-                    </div>
-                    <p className="mt-5 text-xs font-bold uppercase tracking-[0.3em] text-gold">JR Design Studio</p>
-                    <p className="mt-2 font-display text-xl font-bold text-foreground">(Jayshuman Rao)</p>
-                    <p className="mt-1 text-sm font-medium text-ink-muted">Founder</p>
-                  </div>
+                <Tilt className="relative size-full overflow-hidden rounded-3xl glass-strong shadow-elegant">
+                  <img
+                    src={founderAsset.url}
+                    alt="Jayshuman Rao"
+                    className="size-full object-cover"
+                  />
                 </Tilt>
               </div>
             </div>
