@@ -599,7 +599,7 @@ function TestimonialCarousel() {
               key={k}
               onClick={() => setI(k)}
               aria-label={`Show testimonial ${k + 1}`}
-              className={`h-2 rounded-full transition-all ${k === i ? "w-8 bg-gold" : "w-2 bg-background/30"}`}
+              className={`h-2 rounded-full transition-all ${k === i ? "w-8 bg-gold" : "w-2 bg-white/30"}`}
             />
           ))}
         </div>
