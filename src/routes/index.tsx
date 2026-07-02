@@ -587,7 +587,7 @@ function TestimonialCarousel() {
               </div>
               <div className="text-left">
                 <p className="font-bold">{t.name}</p>
-                <p className="text-xs uppercase tracking-widest text-background/60">{t.title}</p>
+                <p className="text-xs uppercase tracking-widest text-white/60">{t.title}</p>
               </div>
             </div>
           </div>
