@@ -158,12 +158,12 @@ const services = [
 ];
 
 const portfolio = [
-  { title: "Nova Finance App", category: "Web", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80" },
-  { title: "Aurora Skincare", category: "Graphic", img: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=900&q=80" },
-  { title: "Helix SaaS", category: "Web", img: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=900&q=80" },
-  { title: "Sartoria Brand", category: "Graphic", img: "https://images.unsplash.com/photo-1561070791-2526d30994b8?w=900&q=80" },
-  { title: "Verve Coffee", category: "Web", img: "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=900&q=80" },
-  { title: "Lumen Identity", category: "Graphic", img: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=900&q=80" },
+  { id: 1, title: "Nova Finance App", category: "Web", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80", liveUrl: "" },
+  { id: 2, title: "Aurora Skincare", category: "Graphic", img: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=900&q=80", liveUrl: "" },
+  { id: 3, title: "Helix SaaS", category: "Web", img: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=900&q=80", liveUrl: "" },
+  { id: 4, title: "Sartoria Brand", category: "Graphic", img: "https://images.unsplash.com/photo-1561070791-2526d30994b8?w=900&q=80", liveUrl: "" },
+  { id: 5, title: "Verve Coffee", category: "Web", img: "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=900&q=80", liveUrl: "" },
+  { id: 6, title: "Lumen Identity", category: "Graphic", img: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=900&q=80", liveUrl: "" },
 ];
 
 const processSteps = [
@@ -520,26 +520,40 @@ function PortfolioSection() {
         </div>
 
         <div className="mt-12 grid auto-rows-[280px] grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {filtered.map((p, i) => (
-            <FadeUp key={p.title} delay={i * 0.05} className={i % 5 === 0 ? "md:row-span-2 md:h-[584px]" : ""}>
-              <Tilt className="group relative h-full w-full overflow-hidden rounded-3xl shadow-elegant">
-                <img
-                  src={p.img}
-                  alt={p.title}
-                  loading="lazy"
-                  className="size-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/40 to-transparent opacity-90" />
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-background">
-                  <p className="text-xs font-bold uppercase tracking-widest text-gold">{p.category}</p>
-                  <h3 className="font-display mt-1 text-xl font-bold">{p.title}</h3>
-                </div>
-                <div className="absolute top-4 right-4 grid size-10 place-items-center rounded-full bg-gold text-navy opacity-0 transition-opacity group-hover:opacity-100">
-                  <ArrowUpRight className="size-4" />
-                </div>
-              </Tilt>
-            </FadeUp>
-          ))}
+          {filtered.map((p, i) => {
+            const CardWrapper = p.liveUrl ? "a" : "div";
+            const wrapperProps = p.liveUrl
+              ? { href: p.liveUrl, target: "_blank", rel: "noopener noreferrer" }
+              : {};
+            return (
+              <FadeUp key={p.id} delay={i * 0.05} className={i % 5 === 0 ? "md:row-span-2 md:h-[584px]" : ""}>
+                <CardWrapper
+                  {...wrapperProps}
+                  className="group relative block h-full w-full cursor-pointer overflow-hidden rounded-3xl shadow-elegant transition-all duration-300 hover:-translate-y-1 hover:shadow-glow"
+                >
+                  <img
+                    src={p.img}
+                    alt={p.title}
+                    loading="lazy"
+                    className="size-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/40 to-transparent opacity-90" />
+                  <div className="absolute bottom-0 left-0 right-0 p-6 text-background">
+                    <p className="text-xs font-bold uppercase tracking-widest text-gold">{p.category}</p>
+                    <h3 className="font-display mt-1 text-xl font-bold">{p.title}</h3>
+                  </div>
+                  {!p.liveUrl && (
+                    <div className="absolute top-4 left-4 rounded-full bg-background/90 px-3 py-1 text-xs font-semibold text-navy backdrop-blur-sm">
+                      Coming Soon
+                    </div>
+                  )}
+                  <div className="absolute top-4 right-4 grid size-10 place-items-center rounded-full bg-gold text-navy opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                    <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </div>
+                </CardWrapper>
+              </FadeUp>
+            );
+          })}
         </div>
       </div>
     </section>
