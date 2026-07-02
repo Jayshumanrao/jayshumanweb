@@ -1,4 +1,4 @@
-export function WhatsAppButton({ phone = "919999999999", message = "Hi Jayshuman, I'd like to discuss a project." }: { phone?: string; message?: string }) {
+export function WhatsAppButton({ phone = "919984482873", message = "Hi Jayshuman, I'd like to discuss a project." }: { phone?: string; message?: string }) {
   const href = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
   return (
     <a
