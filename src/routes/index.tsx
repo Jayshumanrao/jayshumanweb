@@ -158,12 +158,12 @@ const services = [
 ];
 
 const portfolio = [
-  { title: "Nova Finance App", category: "Web", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80" },
-  { title: "Aurora Skincare", category: "Graphic", img: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=900&q=80" },
-  { title: "Helix SaaS", category: "Web", img: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=900&q=80" },
-  { title: "Sartoria Brand", category: "Graphic", img: "https://images.unsplash.com/photo-1561070791-2526d30994b8?w=900&q=80" },
-  { title: "Verve Coffee", category: "Web", img: "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=900&q=80" },
-  { title: "Lumen Identity", category: "Graphic", img: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=900&q=80" },
+  { id: 1, title: "Nova Finance App", category: "Web", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80", liveUrl: "" },
+  { id: 2, title: "Aurora Skincare", category: "Graphic", img: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=900&q=80", liveUrl: "" },
+  { id: 3, title: "Helix SaaS", category: "Web", img: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=900&q=80", liveUrl: "" },
+  { id: 4, title: "Sartoria Brand", category: "Graphic", img: "https://images.unsplash.com/photo-1561070791-2526d30994b8?w=900&q=80", liveUrl: "" },
+  { id: 5, title: "Verve Coffee", category: "Web", img: "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=900&q=80", liveUrl: "" },
+  { id: 6, title: "Lumen Identity", category: "Graphic", img: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=900&q=80", liveUrl: "" },
 ];
 
 const processSteps = [
