@@ -108,7 +108,7 @@ function ContactPage() {
           <div className="space-y-4">
             {[
               { Icon: Mail, label: "Email", value: "jayshumanrao2010@gmail.com", href: "mailto:jayshumanrao2010@gmail.com" },
-              { Icon: MessageCircle, label: "WhatsApp", value: "+91 XXXXXXXXXX", href: "https://wa.me/91XXXXXXXXXX" },
+              { Icon: MessageCircle, label: "WhatsApp", value: "+91 99844 82873", href: "https://wa.me/919984482873" },
               { Icon: Instagram, label: "Instagram", value: "@jayshuman_rao", href: "https://www.instagram.com/jayshuman_rao/" },
               { Icon: MapPin, label: "Location", value: "Azamgarh, Uttar Pradesh, India", href: "#" },
             ].map(({ Icon, label, value, href }) => (

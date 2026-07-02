@@ -633,11 +633,11 @@ function ContactSection() {
                 </span>
                 jayshumanrao2010@gmail.com
               </a>
-              <a href="tel:+919999999999" className="flex items-center gap-4 text-sm hover:text-gold">
+              <a href="tel:+919984482873" className="flex items-center gap-4 text-sm hover:text-gold">
                 <span className="grid size-11 place-items-center rounded-2xl bg-brand/15 text-brand">
                   <Phone className="size-5" />
                 </span>
-                +91 99999 99999
+                +91 99844 82873
               </a>
               <div className="flex items-center gap-4 text-sm">
                 <span className="grid size-11 place-items-center rounded-2xl bg-brand/15 text-brand">
