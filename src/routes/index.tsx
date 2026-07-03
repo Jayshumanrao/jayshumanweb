@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import {
   ArrowRight,
   ArrowUpRight,
+  ArrowUp,
   Code2,
   Palette,
   PenTool,
@@ -23,6 +24,16 @@ import {
   QrCode,
   ShieldCheck,
   Copy,
+  Plus,
+  Minus,
+  Zap,
+  Award,
+  Clock,
+  Smartphone,
+  Lock,
+  Heart,
+  MessageCircle,
+  Calculator,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { testimonials } from "@/lib/portfolio-data";
