@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import {
   ArrowRight,
   ArrowUpRight,
+  ArrowUp,
   Code2,
   Palette,
   PenTool,
@@ -23,6 +24,16 @@ import {
   QrCode,
   ShieldCheck,
   Copy,
+  Plus,
+  Minus,
+  Zap,
+  Award,
+  Clock,
+  Smartphone,
+  Lock,
+  Heart,
+  MessageCircle,
+  Calculator,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { testimonials } from "@/lib/portfolio-data";
@@ -623,9 +634,283 @@ function Home() {
       {/* ============ PAYMENT OPTIONS ============ */}
       <PaymentSection />
 
+      {/* ============ WHY CHOOSE ME ============ */}
+      <WhyChooseSection />
+
+      {/* ============ COST CALCULATOR ============ */}
+      <CostCalculator />
+
+      {/* ============ FAQ ============ */}
+      <FAQSection />
+
       {/* ============ CONTACT ============ */}
       <ContactSection />
+
+      {/* Floating buttons */}
+      <FloatingWhatsApp />
+      <BackToTop />
     </div>
+  );
+}
+
+// ---------- Why Choose Me ----------
+const whyChoose = [
+  { icon: Smartphone, title: "Responsive Design", desc: "Pixel-perfect on every device." },
+  { icon: Palette, title: "Modern UI/UX", desc: "Trend-aware, brand-first design." },
+  { icon: Zap, title: "Fast Delivery", desc: "Ship in days, not months." },
+  { icon: Search, title: "SEO Friendly", desc: "Built to rank from day one." },
+  { icon: Lock, title: "Secure Coding", desc: "Best practices, no shortcuts." },
+  { icon: Award, title: "Lifetime Code Ownership", desc: "Your code is yours forever." },
+  { icon: Rocket, title: "Speed Optimized", desc: "Lightning-fast load times." },
+  { icon: Heart, title: "Affordable Pricing", desc: "Premium quality, honest rates." },
+  { icon: MessageCircle, title: "Free Consultation", desc: "Talk before you commit." },
+  { icon: Sparkles, title: "Premium Quality", desc: "Every pixel intentional." },
+];
+
+function WhyChooseSection() {
+  return (
+    <section id="why-me" className="mx-auto max-w-7xl px-6 py-24 md:py-32">
+      <FadeUp>
+        <SectionHeading
+          eyebrow="Why Choose Me"
+          title="Ten reasons founders trust me with their brand"
+          align="center"
+        />
+      </FadeUp>
+      <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+        {whyChoose.map((w, i) => (
+          <FadeUp key={w.title} delay={i * 0.04}>
+            <div className="group h-full rounded-3xl glass p-6 transition-all duration-500 hover:-translate-y-2 hover:shadow-glow">
+              <div className="grid size-12 place-items-center rounded-2xl bg-gradient-to-br from-brand/20 to-gold/20 text-brand transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
+                <w.icon className="size-6" />
+              </div>
+              <h3 className="font-display mt-5 text-base font-bold">{w.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-ink-muted">{w.desc}</p>
+            </div>
+          </FadeUp>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+// ---------- Cost Calculator ----------
+const calcFeatures = [
+  { key: "seo", label: "SEO Optimization", price: 2000 },
+  { key: "cms", label: "Content Management", price: 3500 },
+  { key: "blog", label: "Blog Section", price: 2500 },
+  { key: "booking", label: "Booking / Appointment", price: 4000 },
+  { key: "ecom", label: "E-Commerce Cart", price: 8000 },
+  { key: "auth", label: "User Accounts / Login", price: 3500 },
+  { key: "chat", label: "Live Chat / WhatsApp", price: 1000 },
+  { key: "anim", label: "Advanced Animations", price: 2500 },
+  { key: "multi", label: "Multi-language", price: 3000 },
+  { key: "analytics", label: "Analytics Setup", price: 1500 },
+];
+
+function CostCalculator() {
+  const [pages, setPages] = useState(5);
+  const [selected, setSelected] = useState<Record<string, boolean>>({});
+  const base = 3500;
+  const perPage = 800;
+  const featuresTotal = calcFeatures.reduce(
+    (sum, f) => sum + (selected[f.key] ? f.price : 0),
+    0,
+  );
+  const total = base + pages * perPage + featuresTotal;
+
+  return (
+    <section id="calculator" className="relative overflow-hidden py-24 md:py-32">
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10" style={{ background: "var(--gradient-hero)", opacity: 0.25 }} />
+      <div className="mx-auto max-w-6xl px-6">
+        <FadeUp>
+          <SectionHeading
+            eyebrow="Instant Estimate"
+            title="Website Cost Calculator"
+            subtitle="Get a transparent estimate in seconds. Final quote may vary based on scope."
+            align="center"
+          />
+        </FadeUp>
+
+        <FadeUp delay={0.1}>
+          <div className="mt-14 grid gap-6 rounded-3xl glass-strong p-6 md:p-10 lg:grid-cols-[1.2fr_1fr]">
+            <div>
+              <div>
+                <div className="flex items-center justify-between">
+                  <label className="text-sm font-bold uppercase tracking-widest text-gold">Number of Pages</label>
+                  <span className="font-display text-2xl font-extrabold text-gradient-brand">{pages}</span>
+                </div>
+                <input
+                  type="range"
+                  min={1}
+                  max={30}
+                  value={pages}
+                  onChange={(e) => setPages(Number(e.target.value))}
+                  className="mt-4 w-full accent-[color:var(--color-gold)]"
+                />
+                <div className="mt-1 flex justify-between text-xs text-ink-muted">
+                  <span>1 page</span><span>30+ pages</span>
+                </div>
+              </div>
+
+              <div className="mt-8">
+                <p className="text-sm font-bold uppercase tracking-widest text-gold">Features</p>
+                <div className="mt-4 grid gap-2 sm:grid-cols-2">
+                  {calcFeatures.map((f) => {
+                    const active = !!selected[f.key];
+                    return (
+                      <button
+                        key={f.key}
+                        type="button"
+                        onClick={() => setSelected((s) => ({ ...s, [f.key]: !s[f.key] }))}
+                        className={`flex items-center justify-between rounded-2xl border px-4 py-3 text-left text-sm transition-all ${
+                          active
+                            ? "border-gold bg-gold/10 text-foreground shadow-glow"
+                            : "border-border bg-background/40 text-ink-muted hover:border-gold/40 hover:text-foreground"
+                        }`}
+                      >
+                        <span className="flex items-center gap-2">
+                          <span className={`grid size-5 place-items-center rounded-md border ${active ? "border-gold bg-gold text-navy" : "border-border"}`}>
+                            {active && <Check className="size-3" strokeWidth={4} />}
+                          </span>
+                          {f.label}
+                        </span>
+                        <span className="font-semibold text-gold">+₹{f.price.toLocaleString("en-IN")}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+
+            <div className="relative flex flex-col justify-between rounded-2xl border border-gold/30 bg-gradient-to-br from-brand/15 via-navy/40 to-gold/15 p-6 md:p-8">
+              <div>
+                <div className="flex items-center gap-3">
+                  <span className="grid size-10 place-items-center rounded-2xl bg-gold/20 text-gold">
+                    <Calculator className="size-5" />
+                  </span>
+                  <h3 className="font-display text-xl font-bold">Estimated Cost</h3>
+                </div>
+                <div className="mt-6 space-y-2 text-sm text-ink-muted">
+                  <div className="flex justify-between"><span>Base</span><span>₹{base.toLocaleString("en-IN")}</span></div>
+                  <div className="flex justify-between"><span>{pages} × Page</span><span>₹{(pages * perPage).toLocaleString("en-IN")}</span></div>
+                  <div className="flex justify-between"><span>Features</span><span>₹{featuresTotal.toLocaleString("en-IN")}</span></div>
+                </div>
+                <div className="mt-6 h-px w-full bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
+                <div className="mt-6">
+                  <p className="text-xs font-bold uppercase tracking-widest text-gold">Total (approx.)</p>
+                  <p className="font-display mt-2 text-5xl font-extrabold text-gradient-brand">
+                    ₹{total.toLocaleString("en-IN")}
+                  </p>
+                </div>
+              </div>
+              <a
+                href="#contact"
+                className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-brand to-gold px-6 py-3 text-sm font-bold text-background shadow-glow transition-transform hover:scale-[1.03]"
+              >
+                Get Exact Quote <ArrowRight className="size-4" />
+              </a>
+            </div>
+          </div>
+        </FadeUp>
+      </div>
+    </section>
+  );
+}
+
+// ---------- FAQ ----------
+const faqs = [
+  { q: "How much does a website cost?", a: "Prices start at ₹4,999 for a Starter site and scale with pages and features. Use the calculator above for an instant estimate." },
+  { q: "How long does delivery take?", a: "Starter sites ship in 3–5 days, Business in 7–10 days, Premium in 2–3 weeks, and E-commerce in 3–4 weeks." },
+  { q: "How many revisions are included?", a: "Every package includes 2 rounds of free revisions during design. Additional rounds are billed at a small hourly rate." },
+  { q: "Do you provide domain and hosting?", a: "Yes — I help you buy and set up domain, hosting, email, and SSL. Third-party costs are billed at actuals." },
+  { q: "Do you offer maintenance?", a: "Yes. Monthly maintenance plans cover updates, backups, security patches, and small content edits." },
+  { q: "How do payments work?", a: "50% advance to start, 50% before final delivery. UPI, Google Pay, PhonePe, and bank transfer accepted." },
+  { q: "Will I own the code?", a: "Absolutely. You get lifetime ownership of your source code and full admin access." },
+  { q: "Do you help after launch?", a: "Every plan includes free post-launch support (7–30 days depending on package). Extended support is available on request." },
+];
+
+function FAQItem({ q, a, isOpen, onToggle }: { q: string; a: string; isOpen: boolean; onToggle: () => void }) {
+  return (
+    <div className={`rounded-2xl border transition-all ${isOpen ? "border-gold/50 bg-gold/5 shadow-elegant" : "border-border bg-background/40 hover:border-gold/30"}`}>
+      <button
+        type="button"
+        onClick={onToggle}
+        className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
+      >
+        <span className="font-display text-base font-bold md:text-lg">{q}</span>
+        <span className={`grid size-8 shrink-0 place-items-center rounded-full transition-all ${isOpen ? "bg-gold text-navy rotate-180" : "bg-brand/10 text-brand"}`}>
+          {isOpen ? <Minus className="size-4" /> : <Plus className="size-4" />}
+        </span>
+      </button>
+      <div className={`grid overflow-hidden transition-all duration-300 ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}>
+        <div className="min-h-0">
+          <p className="px-6 pb-6 text-sm leading-relaxed text-ink-muted">{a}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function FAQSection() {
+  const [open, setOpen] = useState<number | null>(0);
+  return (
+    <section id="faq" className="mx-auto max-w-4xl px-6 py-24 md:py-32">
+      <FadeUp>
+        <SectionHeading
+          eyebrow="Questions"
+          title="Frequently Asked"
+          subtitle="Everything you need to know before we start."
+          align="center"
+        />
+      </FadeUp>
+      <div className="mt-14 space-y-3">
+        {faqs.map((f, i) => (
+          <FadeUp key={f.q} delay={i * 0.04}>
+            <FAQItem q={f.q} a={f.a} isOpen={open === i} onToggle={() => setOpen(open === i ? null : i)} />
+          </FadeUp>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+// ---------- Floating WhatsApp ----------
+function FloatingWhatsApp() {
+  return (
+    <a
+      href="https://wa.me/919984482873?text=Hi%20Jayshuman%2C%20I'd%20like%20to%20discuss%20a%20website%20project."
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat on WhatsApp"
+      className="group fixed bottom-6 left-6 z-50 grid size-14 place-items-center rounded-full bg-[#25D366] text-white shadow-glow transition-transform hover:scale-110"
+    >
+      <span className="absolute inset-0 animate-ping rounded-full bg-[#25D366] opacity-40" />
+      <svg viewBox="0 0 24 24" className="relative size-7" fill="currentColor" aria-hidden>
+        <path d="M20.52 3.48A11.94 11.94 0 0012.02 0C5.4 0 .04 5.36.04 11.98c0 2.11.55 4.17 1.6 5.99L0 24l6.2-1.62a11.96 11.96 0 005.82 1.48h.01c6.62 0 11.98-5.36 11.98-11.98 0-3.2-1.25-6.21-3.49-8.4zM12.03 21.3h-.01a9.3 9.3 0 01-4.74-1.3l-.34-.2-3.68.96.98-3.59-.22-.37a9.32 9.32 0 01-1.42-4.83c0-5.14 4.19-9.32 9.33-9.32 2.49 0 4.83.97 6.59 2.73a9.27 9.27 0 012.73 6.6c0 5.14-4.19 9.32-9.22 9.32zm5.4-6.98c-.3-.15-1.76-.87-2.03-.97s-.47-.15-.67.15-.77.97-.94 1.17-.35.22-.65.07c-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07s-.02-.46.13-.61c.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.09 4.49.71.31 1.27.5 1.7.64.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/>
+      </svg>
+    </a>
+  );
+}
+
+// ---------- Back to Top ----------
+function BackToTop() {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setShow(window.scrollY > 600);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  return (
+    <button
+      type="button"
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      aria-label="Back to top"
+      className={`fixed bottom-6 right-6 z-50 grid size-12 place-items-center rounded-full bg-gradient-to-br from-brand to-gold text-background shadow-glow transition-all duration-300 hover:scale-110 ${show ? "opacity-100 translate-y-0" : "pointer-events-none opacity-0 translate-y-4"}`}
+    >
+      <ArrowUp className="size-5" />
+    </button>
   );
 }
 
