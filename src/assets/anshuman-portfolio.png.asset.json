@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "48122f75-ce7f-4f1f-95b2-8b353c47f510",
-  "project_id": "346fd06f-c7cb-44d2-b310-b575b6426315",
-  "url": "/__l5e/assets-v1/48122f75-ce7f-4f1f-95b2-8b353c47f510/anshuman-portfolio.png",
-  "r2_key": "a/v1/346fd06f-c7cb-44d2-b310-b575b6426315/48122f75-ce7f-4f1f-95b2-8b353c47f510/anshuman-portfolio.png",
-  "original_filename": "anshuman-portfolio.png",
-  "size": 528651,
   "content_type": "image/png",
-  "created_at": "2026-07-03T17:36:37Z"
+  "created_at": "2026-07-03T17:36:37Z",
+  "original_filename": "anshuman-portfolio.png",
+  "project_id": "9a8a2e46-13d1-4c4d-ab2c-934b6c938d39",
+  "r2_key": "a/v1/9a8a2e46-13d1-4c4d-ab2c-934b6c938d39/48122f75-ce7f-4f1f-95b2-8b353c47f510/anshuman-portfolio.png",
+  "size": 528651,
+  "url": "/__l5e/assets-v1/48122f75-ce7f-4f1f-95b2-8b353c47f510/anshuman-portfolio.png",
+  "version": 1
 }
