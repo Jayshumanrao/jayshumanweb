@@ -26,6 +26,7 @@ import { testimonials } from "@/lib/portfolio-data";
 import { FadeUp, SectionHeading } from "@/components/section";
 import founderAsset from "@/assets/jayshuman-founder-new.png.asset.json";
 import bannerAsset from "@/assets/jayshuman-banner.png.asset.json";
+import anshumanProject from "@/assets/anshuman-portfolio.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
