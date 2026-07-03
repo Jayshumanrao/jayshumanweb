@@ -159,42 +159,100 @@ const services = [
 ];
 
 const portfolio = [
-  { id: 1, title: "Nova Finance App", category: "Web", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80", liveUrl: "" },
-  { id: 2, title: "Aurora Skincare", category: "Graphic", img: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=900&q=80", liveUrl: "" },
-  { id: 3, title: "Helix SaaS", category: "Web", img: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=900&q=80", liveUrl: "" },
-  { id: 4, title: "Sartoria Brand", category: "Graphic", img: "https://images.unsplash.com/photo-1561070791-2526d30994b8?w=900&q=80", liveUrl: "" },
-  { id: 5, title: "Verve Coffee", category: "Web", img: "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=900&q=80", liveUrl: "" },
-  { id: 6, title: "Lumen Identity", category: "Graphic", img: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=900&q=80", liveUrl: "" },
-];
-
-const processSteps = [
-  { icon: Search, title: "Discovery", desc: "Deep-dive into your goals, audience, and competitors." },
-  { icon: ClipboardList, title: "Planning", desc: "Strategy, sitemap, and a tight project roadmap." },
-  { icon: PenTool, title: "Design", desc: "Concepts, wireframes, and pixel-perfect mockups." },
-  { icon: Code2, title: "Development", desc: "Clean, scalable code with modern best practices." },
-  { icon: Rocket, title: "Launch", desc: "QA, deploy, and post-launch support to keep you growing." },
+  { id: 1, title: "Anshuman Bharti — Data Analyst Portfolio", category: "Web", img: anshumanProject.url, liveUrl: "https://anshumanraoweb.lovable.app/" },
+  { id: 2, title: "Nova Finance App", category: "Web", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80", liveUrl: "" },
+  { id: 3, title: "Aurora Skincare", category: "Graphic", img: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=900&q=80", liveUrl: "" },
+  { id: 4, title: "Helix SaaS", category: "Web", img: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=900&q=80", liveUrl: "" },
+  { id: 5, title: "Sartoria Brand", category: "Graphic", img: "https://images.unsplash.com/photo-1561070791-2526d30994b8?w=900&q=80", liveUrl: "" },
+  { id: 6, title: "Verve Coffee", category: "Web", img: "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=900&q=80", liveUrl: "" },
+  { id: 7, title: "Lumen Identity", category: "Graphic", img: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=900&q=80", liveUrl: "" },
 ];
 
 const pricing = [
   {
-    name: "Basic",
-    price: "$499",
-    desc: "Perfect for solopreneurs needing a polished web presence.",
-    features: ["1-3 page website", "Mobile responsive", "Basic SEO setup", "Contact form", "7 day delivery"],
+    name: "Starter Website",
+    price: "₹4,999",
+    desc: "Perfect for personal portfolios, landing pages, and small businesses.",
+    features: [
+      "1–3 Responsive Pages",
+      "Modern UI Design",
+      "Contact Form",
+      "WhatsApp Integration",
+      "Mobile Friendly",
+      "Basic SEO",
+      "Fast Loading",
+      "7 Days Free Support",
+    ],
+    cta: "Get Started",
   },
   {
-    name: "Professional",
-    price: "$1,299",
-    desc: "For growing brands ready to scale online.",
-    features: ["Up to 8 pages", "Custom UI/UX design", "Advanced SEO", "Blog/CMS integration", "Analytics + tracking", "Priority support"],
+    name: "Business Website",
+    price: "₹9,999",
+    desc: "Perfect for restaurants, gyms, clinics, coaching centers, and local businesses.",
+    features: [
+      "Up to 8 Pages",
+      "Premium UI/UX",
+      "Smooth Animations",
+      "Google Maps Integration",
+      "Gallery & Contact Forms",
+      "Social Media Integration",
+      "Basic SEO",
+      "15 Days Free Support",
+    ],
+    cta: "Start Project",
     featured: true,
   },
   {
-    name: "Premium",
-    price: "$2,999",
-    desc: "Full agency-grade design + development engagement.",
-    features: ["Unlimited pages", "Brand identity package", "E-commerce ready", "Custom integrations", "Performance tuning", "3 months support"],
+    name: "Premium Website",
+    price: "₹19,999",
+    desc: "Perfect for growing businesses and companies.",
+    features: [
+      "Unlimited Pages",
+      "Fully Custom Design",
+      "Advanced Animations",
+      "Booking System",
+      "CMS/Admin Dashboard",
+      "Performance Optimization",
+      "Advanced SEO",
+      "Google Analytics Integration",
+      "30 Days Priority Support",
+    ],
+    cta: "Contact Me",
   },
+  {
+    name: "E-Commerce Website",
+    price: "From ₹29,999",
+    desc: "Perfect for online stores that need to sell and scale.",
+    features: [
+      "Product Management",
+      "Shopping Cart",
+      "Secure Payment Gateway",
+      "Order Management",
+      "Customer Accounts",
+      "Inventory Management",
+      "Coupon System",
+      "SEO Optimization",
+      "Training & Support",
+    ],
+    cta: "Build My Store",
+  },
+];
+
+const additionalServices = [
+  { name: "Logo Design", price: "₹1,000–₹3,000" },
+  { name: "Domain Setup", price: "₹500" },
+  { name: "Hosting Setup", price: "₹500" },
+  { name: "Google Business Profile", price: "₹1,000" },
+  { name: "Basic SEO", price: "₹2,000" },
+  { name: "Website Maintenance", price: "₹999/month" },
+  { name: "Speed Optimization", price: "₹2,000" },
+];
+
+const paymentTerms = [
+  "50% Advance Payment",
+  "50% Before Final Delivery",
+  "Free Revisions Included",
+  "Domain & Hosting Charges Extra (if required)",
 ];
 
 function Home() {
