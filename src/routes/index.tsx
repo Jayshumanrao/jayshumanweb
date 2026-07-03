@@ -158,6 +158,14 @@ const services = [
   { icon: ShoppingBag, title: "E-commerce Websites", desc: "Custom Shopify and headless storefronts engineered for revenue growth." },
 ];
 
+const processSteps = [
+  { icon: Search, title: "Discovery", desc: "Deep-dive into your goals, audience, and competitors." },
+  { icon: ClipboardList, title: "Planning", desc: "Strategy, sitemap, and a tight project roadmap." },
+  { icon: PenTool, title: "Design", desc: "Concepts, wireframes, and pixel-perfect mockups." },
+  { icon: Code2, title: "Development", desc: "Clean, scalable code with modern best practices." },
+  { icon: Rocket, title: "Launch", desc: "QA, deploy, and post-launch support to keep you growing." },
+];
+
 const portfolio = [
   { id: 1, title: "Anshuman Bharti — Data Analyst Portfolio", category: "Web", img: anshumanProject.url, liveUrl: "https://anshumanraoweb.lovable.app/" },
   { id: 2, title: "Nova Finance App", category: "Web", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80", liveUrl: "" },
