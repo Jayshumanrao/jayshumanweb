@@ -26,6 +26,7 @@ import { testimonials } from "@/lib/portfolio-data";
 import { FadeUp, SectionHeading } from "@/components/section";
 import founderAsset from "@/assets/jayshuman-founder-new.png.asset.json";
 import bannerAsset from "@/assets/jayshuman-banner.png.asset.json";
+import anshumanProject from "@/assets/anshuman-portfolio.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -157,15 +158,6 @@ const services = [
   { icon: ShoppingBag, title: "E-commerce Websites", desc: "Custom Shopify and headless storefronts engineered for revenue growth." },
 ];
 
-const portfolio = [
-  { id: 1, title: "Nova Finance App", category: "Web", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80", liveUrl: "" },
-  { id: 2, title: "Aurora Skincare", category: "Graphic", img: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=900&q=80", liveUrl: "" },
-  { id: 3, title: "Helix SaaS", category: "Web", img: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=900&q=80", liveUrl: "" },
-  { id: 4, title: "Sartoria Brand", category: "Graphic", img: "https://images.unsplash.com/photo-1561070791-2526d30994b8?w=900&q=80", liveUrl: "" },
-  { id: 5, title: "Verve Coffee", category: "Web", img: "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=900&q=80", liveUrl: "" },
-  { id: 6, title: "Lumen Identity", category: "Graphic", img: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=900&q=80", liveUrl: "" },
-];
-
 const processSteps = [
   { icon: Search, title: "Discovery", desc: "Deep-dive into your goals, audience, and competitors." },
   { icon: ClipboardList, title: "Planning", desc: "Strategy, sitemap, and a tight project roadmap." },
@@ -174,26 +166,101 @@ const processSteps = [
   { icon: Rocket, title: "Launch", desc: "QA, deploy, and post-launch support to keep you growing." },
 ];
 
+const portfolio = [
+  { id: 1, title: "Anshuman Bharti — Data Analyst Portfolio", category: "Web", img: anshumanProject.url, liveUrl: "https://anshumanraoweb.lovable.app/" },
+  { id: 2, title: "Nova Finance App", category: "Web", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80", liveUrl: "" },
+  { id: 3, title: "Aurora Skincare", category: "Graphic", img: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=900&q=80", liveUrl: "" },
+  { id: 4, title: "Helix SaaS", category: "Web", img: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=900&q=80", liveUrl: "" },
+  { id: 5, title: "Sartoria Brand", category: "Graphic", img: "https://images.unsplash.com/photo-1561070791-2526d30994b8?w=900&q=80", liveUrl: "" },
+  { id: 6, title: "Verve Coffee", category: "Web", img: "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=900&q=80", liveUrl: "" },
+  { id: 7, title: "Lumen Identity", category: "Graphic", img: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=900&q=80", liveUrl: "" },
+];
+
 const pricing = [
   {
-    name: "Basic",
-    price: "$499",
-    desc: "Perfect for solopreneurs needing a polished web presence.",
-    features: ["1-3 page website", "Mobile responsive", "Basic SEO setup", "Contact form", "7 day delivery"],
+    name: "Starter Website",
+    price: "₹4,999",
+    desc: "Perfect for personal portfolios, landing pages, and small businesses.",
+    features: [
+      "1–3 Responsive Pages",
+      "Modern UI Design",
+      "Contact Form",
+      "WhatsApp Integration",
+      "Mobile Friendly",
+      "Basic SEO",
+      "Fast Loading",
+      "7 Days Free Support",
+    ],
+    cta: "Get Started",
   },
   {
-    name: "Professional",
-    price: "$1,299",
-    desc: "For growing brands ready to scale online.",
-    features: ["Up to 8 pages", "Custom UI/UX design", "Advanced SEO", "Blog/CMS integration", "Analytics + tracking", "Priority support"],
+    name: "Business Website",
+    price: "₹9,999",
+    desc: "Perfect for restaurants, gyms, clinics, coaching centers, and local businesses.",
+    features: [
+      "Up to 8 Pages",
+      "Premium UI/UX",
+      "Smooth Animations",
+      "Google Maps Integration",
+      "Gallery & Contact Forms",
+      "Social Media Integration",
+      "Basic SEO",
+      "15 Days Free Support",
+    ],
+    cta: "Start Project",
     featured: true,
   },
   {
-    name: "Premium",
-    price: "$2,999",
-    desc: "Full agency-grade design + development engagement.",
-    features: ["Unlimited pages", "Brand identity package", "E-commerce ready", "Custom integrations", "Performance tuning", "3 months support"],
+    name: "Premium Website",
+    price: "₹19,999",
+    desc: "Perfect for growing businesses and companies.",
+    features: [
+      "Unlimited Pages",
+      "Fully Custom Design",
+      "Advanced Animations",
+      "Booking System",
+      "CMS/Admin Dashboard",
+      "Performance Optimization",
+      "Advanced SEO",
+      "Google Analytics Integration",
+      "30 Days Priority Support",
+    ],
+    cta: "Contact Me",
   },
+  {
+    name: "E-Commerce Website",
+    price: "From ₹29,999",
+    desc: "Perfect for online stores that need to sell and scale.",
+    features: [
+      "Product Management",
+      "Shopping Cart",
+      "Secure Payment Gateway",
+      "Order Management",
+      "Customer Accounts",
+      "Inventory Management",
+      "Coupon System",
+      "SEO Optimization",
+      "Training & Support",
+    ],
+    cta: "Build My Store",
+  },
+];
+
+const additionalServices = [
+  { name: "Logo Design", price: "₹1,000–₹3,000" },
+  { name: "Domain Setup", price: "₹500" },
+  { name: "Hosting Setup", price: "₹500" },
+  { name: "Google Business Profile", price: "₹1,000" },
+  { name: "Basic SEO", price: "₹2,000" },
+  { name: "Website Maintenance", price: "₹999/month" },
+  { name: "Speed Optimization", price: "₹2,000" },
+];
+
+const paymentTerms = [
+  "50% Advance Payment",
+  "50% Before Final Delivery",
+  "Free Revisions Included",
+  "Domain & Hosting Charges Extra (if required)",
 ];
 
 function Home() {
@@ -425,58 +492,128 @@ function Home() {
       <TestimonialCarousel />
 
       {/* ============ PRICING ============ */}
-      <section id="pricing" className="mx-auto max-w-7xl px-6 py-24 md:py-32">
-        <FadeUp>
-          <SectionHeading
-            eyebrow="Pricing"
-            title="Transparent Plans, Premium Outcomes"
-            subtitle="Choose a starting point — every project is custom-tailored to your goals."
-            align="center"
-          />
-        </FadeUp>
+      <section id="pricing" className="relative overflow-hidden bg-navy py-24 text-white md:py-32">
+        <div aria-hidden className="pointer-events-none absolute inset-0" style={{ background: "var(--gradient-hero)", opacity: 0.35 }} />
+        <div aria-hidden className="pointer-events-none absolute -top-32 left-1/2 -z-0 size-[600px] -translate-x-1/2 rounded-full bg-brand/20 blur-[140px] animate-pulse-glow" />
+        <div aria-hidden className="pointer-events-none absolute bottom-0 right-0 -z-0 size-[500px] rounded-full bg-gold/10 blur-[140px]" />
+        <Particles />
 
-        <div className="mt-16 grid gap-8 md:grid-cols-3">
-          {pricing.map((p, i) => (
-            <FadeUp key={p.name} delay={i * 0.08}>
-              <div
-                className={`relative h-full rounded-3xl p-8 transition-all duration-500 hover:-translate-y-2 ${
-                  p.featured
-                    ? "bg-gradient-to-br from-brand to-navy text-background shadow-glow ring-2 ring-gold"
-                    : "glass hover:shadow-elegant"
-                }`}
-              >
-                {p.featured && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gold px-4 py-1 text-xs font-bold uppercase tracking-widest text-navy">
-                    Most Popular
-                  </span>
-                )}
-                <h3 className="font-display text-2xl font-bold">{p.name}</h3>
-                <p className={`mt-2 text-sm ${p.featured ? "text-background/80" : "text-ink-muted"}`}>{p.desc}</p>
-                <div className="mt-6 flex items-baseline gap-1">
-                  <span className="font-display text-5xl font-extrabold">{p.price}</span>
-                  <span className={`text-sm ${p.featured ? "text-background/70" : "text-ink-muted"}`}>/ project</span>
-                </div>
-                <ul className="mt-8 space-y-3">
-                  {p.features.map((f) => (
-                    <li key={f} className="flex items-start gap-3 text-sm">
-                      <Check className={`mt-0.5 size-4 shrink-0 ${p.featured ? "text-gold" : "text-brand"}`} />
-                      <span>{f}</span>
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href="#contact"
-                  className={`mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-bold transition-all ${
+        <div className="relative mx-auto max-w-7xl px-6">
+          <FadeUp>
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="mb-4 text-xs font-bold uppercase tracking-[0.3em] text-gold">Pricing</p>
+              <h2 className="font-display text-4xl font-bold leading-tight md:text-5xl">
+                Choose the Perfect Website Package
+              </h2>
+              <p className="mt-4 text-base text-white/70 md:text-lg">
+                Affordable, high-quality websites designed to help businesses grow online. Whether you're a startup, local business, or established company, I have a package that fits your needs.
+              </p>
+            </div>
+          </FadeUp>
+
+          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {pricing.map((p, i) => (
+              <FadeUp key={p.name} delay={i * 0.08} className="h-full">
+                <div
+                  className={`group relative flex h-full flex-col rounded-3xl p-7 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 ${
                     p.featured
-                      ? "bg-gold text-navy hover:bg-background hover:text-brand"
-                      : "bg-foreground text-background hover:bg-brand"
+                      ? "border-2 border-gold/70 bg-gradient-to-br from-brand/30 via-navy/60 to-gold/20 shadow-glow animate-pulse-glow"
+                      : "border border-white/10 bg-white/5 hover:border-gold/40 hover:shadow-elegant"
                   }`}
                 >
-                  Get Started <ArrowRight className="size-4" />
-                </a>
+                  {p.featured && (
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-gradient-to-r from-gold to-brand px-4 py-1 text-[10px] font-bold uppercase tracking-widest text-navy shadow-gold">
+                      ★ Most Popular
+                    </span>
+                  )}
+
+                  <h3 className="font-display text-xl font-bold text-white">{p.name}</h3>
+                  <p className="mt-2 min-h-[48px] text-xs leading-relaxed text-white/60">{p.desc}</p>
+
+                  <div className="mt-5 flex items-baseline gap-1">
+                    <span className={`font-display text-4xl font-extrabold ${p.featured ? "text-gradient-brand" : "text-white"}`}>
+                      {p.price}
+                    </span>
+                  </div>
+
+                  <div className="my-5 h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+
+                  <ul className="flex-1 space-y-2.5">
+                    {p.features.map((f) => (
+                      <li key={f} className="flex items-start gap-2.5 text-sm text-white/80">
+                        <span className={`mt-0.5 grid size-4 shrink-0 place-items-center rounded-full ${p.featured ? "bg-gold/20 text-gold" : "bg-brand/20 text-brand"}`}>
+                          <Check className="size-2.5" strokeWidth={3} />
+                        </span>
+                        <span>{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <a
+                    href="#contact"
+                    className={`group/btn mt-7 inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-full px-5 py-3 text-sm font-bold transition-all ${
+                      p.featured
+                        ? "bg-gradient-to-r from-gold to-brand text-navy shadow-gold hover:scale-[1.03]"
+                        : "border border-white/20 bg-white/5 text-white hover:border-gold hover:bg-gold hover:text-navy"
+                    }`}
+                  >
+                    {p.cta}
+                    <ArrowRight className="size-4 transition-transform group-hover/btn:translate-x-1" />
+                  </a>
+                </div>
+              </FadeUp>
+            ))}
+          </div>
+
+          {/* Additional Services */}
+          <FadeUp>
+            <div className="mt-20 rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl md:p-10">
+              <div className="mb-6 flex items-center gap-3">
+                <span className="grid size-10 place-items-center rounded-2xl bg-gradient-to-br from-brand/30 to-gold/30 text-gold">
+                  <Sparkles className="size-5" />
+                </span>
+                <h3 className="font-display text-2xl font-bold text-white">Additional Services</h3>
               </div>
-            </FadeUp>
-          ))}
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                {additionalServices.map((s) => (
+                  <div
+                    key={s.name}
+                    className="group flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-4 py-3 transition-all hover:border-gold/40 hover:bg-white/10"
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="grid size-8 shrink-0 place-items-center rounded-lg bg-brand/20 text-brand transition-colors group-hover:bg-gold/20 group-hover:text-gold">
+                        <Check className="size-4" strokeWidth={3} />
+                      </span>
+                      <span className="text-sm font-medium text-white/90">{s.name}</span>
+                    </div>
+                    <span className="text-sm font-bold text-gold">{s.price}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </FadeUp>
+
+          {/* Payment Info */}
+          <FadeUp delay={0.1}>
+            <div className="mt-8 overflow-hidden rounded-3xl border border-gold/30 bg-gradient-to-br from-gold/10 via-brand/10 to-transparent p-8 backdrop-blur-xl md:p-10">
+              <div className="mb-5 flex items-center gap-3">
+                <span className="grid size-10 place-items-center rounded-2xl bg-gold/20 text-gold">
+                  <ClipboardList className="size-5" />
+                </span>
+                <h3 className="font-display text-2xl font-bold text-white">Payment Information</h3>
+              </div>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {paymentTerms.map((term) => (
+                  <div key={term} className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
+                    <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-gradient-to-br from-gold to-brand text-navy">
+                      <Check className="size-3" strokeWidth={4} />
+                    </span>
+                    <span className="text-sm font-medium text-white/90">{term}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </FadeUp>
         </div>
       </section>
 
