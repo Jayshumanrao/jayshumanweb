@@ -623,6 +623,9 @@ function Home() {
         </div>
       </section>
 
+      {/* ============ PAYMENT OPTIONS ============ */}
+      <PaymentSection />
+
       {/* ============ CONTACT ============ */}
       <ContactSection />
     </div>
