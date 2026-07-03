@@ -20,6 +20,12 @@ import {
   Search,
   ClipboardList,
   Rocket,
+  Wallet,
+  Smartphone,
+  CreditCard,
+  QrCode,
+  ShieldCheck,
+  Copy,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { testimonials } from "@/lib/portfolio-data";
