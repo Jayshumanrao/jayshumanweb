@@ -20,6 +20,9 @@ import {
   Search,
   ClipboardList,
   Rocket,
+  QrCode,
+  ShieldCheck,
+  Copy,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { testimonials } from "@/lib/portfolio-data";
@@ -617,6 +620,9 @@ function Home() {
         </div>
       </section>
 
+      {/* ============ PAYMENT OPTIONS ============ */}
+      <PaymentSection />
+
       {/* ============ CONTACT ============ */}
       <ContactSection />
     </div>
@@ -883,5 +889,165 @@ function Field({ label, name, type = "text" }: { label: string; name: string; ty
         className="w-full rounded-2xl border border-border bg-background/50 px-4 py-3 text-sm outline-none transition-all focus:border-brand focus:ring-2 focus:ring-brand/20"
       />
     </div>
+  );
+}
+
+function PaymentSection() {
+  const [copied, setCopied] = useState(false);
+  const upiId = "9984482873@upi";
+
+  const copyUpi = async () => {
+    const fallback = () => {
+      const ta = document.createElement("textarea");
+      ta.value = upiId;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      document.body.removeChild(ta);
+    };
+    try {
+      await navigator.clipboard.writeText(upiId);
+    } catch {
+      fallback();
+    }
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2500);
+  };
+
+  const paymentMethods = [
+    {
+      name: "Google Pay",
+      desc: "Fast, secure payments directly from your Google Pay app.",
+      icon: GPayIcon,
+      color: "from-blue-500/20 to-green-500/20",
+      iconColor: "text-blue-400",
+      btn: "Pay with Google Pay",
+      href: `tez://upi/pay?pa=${encodeURIComponent(upiId)}&pn=${encodeURIComponent("Jayshuman Rao")}&cu=INR`,
+    },
+    {
+      name: "PhonePe",
+      desc: "Pay instantly through the PhonePe UPI app on your phone.",
+      icon: PhonePeIcon,
+      color: "from-purple-500/20 to-indigo-500/20",
+      iconColor: "text-purple-400",
+      btn: "Pay with PhonePe",
+      href: `phonepe://pay?pa=${encodeURIComponent(upiId)}&pn=${encodeURIComponent("Jayshuman Rao")}&cu=INR`,
+    },
+    {
+      name: "UPI Payment",
+      desc: "Copy the UPI ID and complete payment using any UPI app.",
+      icon: QrCode,
+      color: "from-gold/20 to-brand/20",
+      iconColor: "text-gold",
+      upi: true,
+    },
+  ];
+
+  return (
+    <section id="payment" className="relative overflow-hidden bg-navy py-24 text-white md:py-32">
+      <div aria-hidden className="pointer-events-none absolute inset-0" style={{ background: "var(--gradient-hero)", opacity: 0.35 }} />
+      <div aria-hidden className="pointer-events-none absolute -top-32 right-0 -z-0 size-[500px] rounded-full bg-brand/20 blur-[140px] animate-pulse-glow" />
+      <div aria-hidden className="pointer-events-none absolute bottom-0 left-0 -z-0 size-[500px] rounded-full bg-gold/10 blur-[140px]" />
+      <Particles />
+
+      <div className="relative mx-auto max-w-7xl px-6">
+        <FadeUp>
+          <div className="mx-auto max-w-3xl text-center">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-green-500/15 px-4 py-1.5 text-sm font-semibold text-green-300">
+              <ShieldCheck className="size-4" />
+              Secure Payment
+            </div>
+            <p className="mb-4 text-xs font-bold uppercase tracking-[0.3em] text-gold">Payment Options</p>
+            <h2 className="font-display text-4xl font-bold leading-tight md:text-5xl">Secure & Easy Payment</h2>
+            <p className="mt-4 text-base text-white/70 md:text-lg">
+              Choose your preferred payment method to pay securely.
+            </p>
+          </div>
+        </FadeUp>
+
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {paymentMethods.map((m, i) => {
+            const Icon = m.icon;
+            return (
+              <FadeUp key={m.name} delay={i * 0.08} className="h-full">
+                <div className="group relative flex h-full flex-col rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-gold/40 hover:shadow-glow">
+                  <div className="pointer-events-none absolute -top-12 -right-12 size-40 rounded-full bg-gradient-to-br from-brand to-gold opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-30" />
+                  <div className="relative">
+                    <div className={`grid size-14 place-items-center rounded-2xl bg-gradient-to-br ${m.color} ${m.iconColor} transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6`}>
+                      <Icon className="size-7" />
+                    </div>
+                    <h3 className="font-display mt-6 text-xl font-bold text-white">{m.name}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-white/60">{m.desc}</p>
+
+                    {m.upi ? (
+                      <div className="mt-6">
+                        <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                          <p className="text-xs font-semibold uppercase tracking-widest text-white/50">UPI ID</p>
+                          <div className="mt-2 flex items-center justify-between gap-3">
+                            <span className="font-mono text-base font-bold tracking-wide text-white">{upiId}</span>
+                            <button
+                              onClick={copyUpi}
+                              aria-label="Copy UPI ID"
+                              className="grid size-9 shrink-0 place-items-center rounded-xl bg-gold/20 text-gold transition-all hover:bg-gold hover:text-navy"
+                            >
+                              <Copy className="size-4" />
+                            </button>
+                          </div>
+                        </div>
+                        {copied && (
+                          <div className="mt-3 flex items-center gap-2 text-sm font-semibold text-green-300">
+                            <Check className="size-4" />
+                            UPI ID copied successfully!
+                          </div>
+                        )}
+                      </div>
+                    ) : (
+                      <a
+                        href={m.href}
+                        className="group/btn mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-gold to-brand px-5 py-3 text-sm font-bold text-navy shadow-gold transition-all hover:scale-[1.03]"
+                      >
+                        {m.btn}
+                        <ArrowRight className="size-4 transition-transform group-hover/btn:translate-x-1" />
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </FadeUp>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function GPayIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <defs>
+        <linearGradient id="gpayGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#4285F4" />
+          <stop offset="1" stopColor="#34A853" />
+        </linearGradient>
+      </defs>
+      <circle cx="12" cy="12" r="10" stroke="url(#gpayGradient)" strokeWidth="2" />
+      <path d="M12 7v5.5l3.5 2" stroke="#EA4335" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M12 12.5l-3.5 2" stroke="#FBBC05" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function PhonePeIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <defs>
+        <linearGradient id="phonePeGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#5F259F" />
+          <stop offset="1" stopColor="#673AB8" />
+        </linearGradient>
+      </defs>
+      <circle cx="12" cy="12" r="10" stroke="url(#phonePeGradient)" strokeWidth="2" />
+      <path d="M9 8h3.5c1.5 0 2.5 1 2.5 2.5S14 13 12.5 13H11v4" stroke="url(#phonePeGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
   );
 }
