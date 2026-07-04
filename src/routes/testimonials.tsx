@@ -3,15 +3,20 @@ import { Star } from "lucide-react";
 import { FadeUp } from "@/components/section";
 import { testimonials } from "@/lib/portfolio-data";
 
+const SITE_URL = "https://jayshumanweb.lovable.app";
+
 export const Route = createFileRoute("/testimonials")({
   head: () => ({
     meta: [
-      { title: "Client Reviews & Testimonials" },
+      { title: "Client Reviews & Testimonials — Jayshuman Rao" },
       { name: "description", content: "What clients say about working with Jayshuman Rao — feedback from founders, business owners, and marketing heads across India." },
-      { property: "og:title", content: "Client Reviews" },
+      { property: "og:title", content: "Client Reviews & Testimonials" },
       { property: "og:description", content: "Feedback from founders, business owners, and marketing heads." },
+      { property: "og:url", content: SITE_URL + "/testimonials" },
+      { name: "twitter:title", content: "Client Reviews & Testimonials" },
+      { name: "twitter:description", content: "Feedback from founders and business owners." },
     ],
-    links: [{ rel: "canonical", href: "/testimonials" }],
+    links: [{ rel: "canonical", href: SITE_URL + "/testimonials" }],
   }),
   component: TestimonialsPage,
 });

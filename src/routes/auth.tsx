@@ -13,10 +13,13 @@ export const Route = createFileRoute("/auth")({
     meta: [
       { title: "Sign in — Jayshuman Rao" },
       { name: "description", content: "Sign in or create an account to access Jayshuman Rao's studio." },
+      { name: "robots", content: "noindex, nofollow" },
     ],
+    links: [{ rel: "canonical", href: "https://jayshumanweb.lovable.app/auth" }],
   }),
   component: AuthPage,
 });
+
 
 function AuthPage() {
   const navigate = useNavigate();

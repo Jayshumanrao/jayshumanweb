@@ -4,15 +4,31 @@ import { Search } from "lucide-react";
 import { FadeUp } from "@/components/section";
 import { posts } from "@/lib/portfolio-data";
 
+const SITE_URL = "https://jayshumanweb.lovable.app";
+
 export const Route = createFileRoute("/blog")({
   head: () => ({
     meta: [
-      { title: "Journal — Writing on Design" },
-      { name: "description", content: "Essays and tutorials on branding, typography, design process, and the craft of visual systems." },
-      { property: "og:title", content: "Journal — Writing on Design" },
-      { property: "og:description", content: "Essays and tutorials on branding and typography." },
+      { title: "Journal — Writing on Web & Design | Jayshuman Rao" },
+      { name: "description", content: "Essays and tutorials on web development, branding, typography, design process, and the craft of visual systems." },
+      { property: "og:title", content: "Journal — Writing on Web & Design" },
+      { property: "og:description", content: "Essays and tutorials on branding, typography, and web development." },
+      { property: "og:url", content: SITE_URL + "/blog" },
+      { name: "twitter:title", content: "Journal — Writing on Web & Design" },
+      { name: "twitter:description", content: "Essays on branding, typography, and web development." },
     ],
-    links: [{ rel: "canonical", href: "/blog" }],
+    links: [{ rel: "canonical", href: SITE_URL + "/blog" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Blog",
+          name: "Jayshuman Rao Journal",
+          url: SITE_URL + "/blog",
+        }),
+      },
+    ],
   }),
   component: BlogPage,
 });

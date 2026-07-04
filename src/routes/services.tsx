@@ -3,15 +3,33 @@ import { Check, ArrowRight } from "lucide-react";
 import { FadeUp, SectionHeading } from "@/components/section";
 import { services } from "@/lib/portfolio-data";
 
+const SITE_URL = "https://jayshumanweb.lovable.app";
+
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services & Pricing" },
+      { title: "Services & Pricing — Jayshuman Rao" },
       { name: "description", content: "Logo design, brand identity, social media graphics, website design, print design, and marketing creatives with transparent pricing. Based in Azamgarh, India." },
-      { property: "og:title", content: "Services & Pricing" },
-      { property: "og:description", content: "Transparent pricing and timelines for creative design services." },
+      { property: "og:title", content: "Services & Pricing — Jayshuman Rao" },
+      { property: "og:description", content: "Transparent pricing and timelines for web development and creative design services." },
+      { property: "og:url", content: SITE_URL + "/services" },
+      { name: "twitter:title", content: "Services & Pricing — Jayshuman Rao" },
+      { name: "twitter:description", content: "Transparent pricing for web development and design." },
     ],
-    links: [{ rel: "canonical", href: "/services" }],
+    links: [{ rel: "canonical", href: SITE_URL + "/services" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          serviceType: "Web Development, UI/UX Design, Brand Identity Design",
+          provider: { "@type": "Person", name: "Jayshuman Rao", url: SITE_URL },
+          areaServed: "Worldwide",
+          url: SITE_URL + "/services",
+        }),
+      },
+    ],
   }),
   component: ServicesPage,
 });
