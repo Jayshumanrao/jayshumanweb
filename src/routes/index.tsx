@@ -42,6 +42,9 @@ import founderAsset from "@/assets/jayshuman-founder-new.png.asset.json";
 import bannerAsset from "@/assets/jayshuman-banner.png.asset.json";
 import anshumanProject from "@/assets/anshuman-portfolio.png.asset.json";
 
+const SITE_URL = "https://jayshumanweb.lovable.app";
+const SOCIAL_IMAGE = "https://storage.googleapis.com/gpt-engineer-file-uploads/8fMRJ9WW88V1A03BiIIrKk3AyLn2/social-images/social-1781087267096-73dbc954-dd6a-4d9b-bb41-d982866d25ae.webp";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -49,6 +52,42 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Premium websites and graphic designs that grow your business. Freelance web developer and graphic designer building luxurious, conversion-focused brands." },
       { property: "og:title", content: "Jayshuman Rao — Premium Web & Graphic Design" },
       { property: "og:description", content: "Premium websites and graphic designs that grow your business." },
+      { property: "og:url", content: SITE_URL + "/" },
+      { property: "og:image", content: SOCIAL_IMAGE },
+      { property: "og:image:alt", content: "Jayshuman Rao — Web Developer & Graphic Designer" },
+      { name: "twitter:title", content: "Jayshuman Rao — Premium Web & Graphic Design" },
+      { name: "twitter:description", content: "Premium websites and graphic designs that grow your business." },
+      { name: "twitter:image", content: SOCIAL_IMAGE },
+    ],
+    links: [{ rel: "canonical", href: SITE_URL + "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ProfessionalService",
+          name: "Jayshuman Rao — Web Development & Design Studio",
+          url: SITE_URL,
+          image: SOCIAL_IMAGE,
+          priceRange: "₹₹",
+          areaServed: "Worldwide",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Azamgarh",
+            addressRegion: "Uttar Pradesh",
+            addressCountry: "IN",
+          },
+          telephone: "+91-9984482873",
+          serviceType: [
+            "Web Development",
+            "Landing Page Design",
+            "Portfolio Websites",
+            "UI/UX Design",
+            "SEO Optimization",
+            "Brand Identity Design",
+          ],
+        }),
+      },
     ],
   }),
   component: Home,
