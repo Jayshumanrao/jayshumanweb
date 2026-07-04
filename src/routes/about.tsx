@@ -20,6 +20,8 @@ import {
 } from "lucide-react";
 import founderAsset from "@/assets/jayshuman-founder-new.png.asset.json";
 
+const SITE_URL = "https://jayshumanweb.lovable.app";
+
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
@@ -35,8 +37,28 @@ export const Route = createFileRoute("/about")({
         content:
           "Premium web development, modern UI/UX, and branding designed to convert visitors into customers.",
       },
+      { property: "og:url", content: SITE_URL + "/about" },
+      { property: "og:type", content: "profile" },
+      { name: "twitter:title", content: "About — Jayshuman Rao" },
+      { name: "twitter:description", content: "Full-Stack Web Developer & Graphic Designer." },
     ],
-    links: [{ rel: "canonical", href: "/about" }],
+    links: [{ rel: "canonical", href: SITE_URL + "/about" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          url: SITE_URL + "/about",
+          mainEntity: {
+            "@type": "Person",
+            name: "Jayshuman Rao",
+            jobTitle: "Full-Stack Web Developer & Graphic Designer",
+            url: SITE_URL,
+          },
+        }),
+      },
+    ],
   }),
   component: AboutPage,
 });
