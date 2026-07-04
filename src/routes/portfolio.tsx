@@ -4,15 +4,32 @@ import { Search, X } from "lucide-react";
 import { FadeUp } from "@/components/section";
 import { categories, projects } from "@/lib/portfolio-data";
 
+const SITE_URL = "https://jayshumanweb.lovable.app";
+
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
     meta: [
-      { title: "Portfolio — Selected Works" },
-      { name: "description", content: "A filterable gallery of identity systems, packaging, UI design, motion, and editorial work." },
+      { title: "Portfolio — Selected Works | Jayshuman Rao" },
+      { name: "description", content: "A filterable gallery of websites, identity systems, packaging, UI design, and editorial work by Jayshuman Rao." },
       { property: "og:title", content: "Portfolio — Selected Works" },
-      { property: "og:description", content: "Identity, packaging, UI, motion, editorial." },
+      { property: "og:description", content: "Websites, identity, packaging, UI, and editorial projects." },
+      { property: "og:url", content: SITE_URL + "/portfolio" },
+      { name: "twitter:title", content: "Portfolio — Selected Works" },
+      { name: "twitter:description", content: "Websites, identity, packaging, UI, and editorial projects." },
     ],
-    links: [{ rel: "canonical", href: "/portfolio" }],
+    links: [{ rel: "canonical", href: SITE_URL + "/portfolio" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "Portfolio",
+          url: SITE_URL + "/portfolio",
+          about: "Selected web development and design work by Jayshuman Rao.",
+        }),
+      },
+    ],
   }),
   component: PortfolioPage,
 });
