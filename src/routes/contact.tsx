@@ -4,18 +4,7 @@ import { z } from "zod";
 import { Mail, MessageCircle, Instagram, MapPin, Check } from "lucide-react";
 import { FadeUp, SectionHeading } from "@/components/section";
 
-export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact — Start a Project" },
-      { name: "description", content: "Get in touch with Jayshuman Rao for branding, logo design, social media graphics, and creative visual projects. Based in Azamgarh, India." },
-      { property: "og:title", content: "Contact — Start a Project" },
-      { property: "og:description", content: "Get in touch to start a project." },
-    ],
-    links: [{ rel: "canonical", href: "/contact" }],
-  }),
-  component: ContactPage,
-});
+const SITE_URL = "https://jayshumanweb.lovable.app";
 
 const schema = z.object({
   name: z.string().trim().min(1, "Required").max(100),
@@ -32,6 +21,57 @@ const faqs = [
   { q: "What's included in your final deliverables?", a: "All source files, export formats (PNG, JPG, PDF, SVG), and usage guidelines. I make sure you have everything you need." },
   { q: "How do we communicate during the project?", a: "Fast and clear communication via email, WhatsApp, or video call. I keep you updated at every stage." },
 ];
+
+export const Route = createFileRoute("/contact")({
+  head: () => ({
+    meta: [
+      { title: "Contact — Start a Project | Jayshuman Rao" },
+      { name: "description", content: "Get in touch with Jayshuman Rao for web development, branding, logo design, and social media graphics. Based in Azamgarh, India." },
+      { property: "og:title", content: "Contact — Start a Project" },
+      { property: "og:description", content: "Get in touch to start a web or design project." },
+      { property: "og:url", content: SITE_URL + "/contact" },
+      { name: "twitter:title", content: "Contact — Start a Project" },
+      { name: "twitter:description", content: "Get in touch to start a web or design project." },
+    ],
+    links: [{ rel: "canonical", href: SITE_URL + "/contact" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          url: SITE_URL + "/contact",
+          mainEntity: {
+            "@type": "Person",
+            name: "Jayshuman Rao",
+            email: "mailto:contact@jayshumanweb.lovable.app",
+            telephone: "+91-9984482873",
+            contactPoint: {
+              "@type": "ContactPoint",
+              telephone: "+91-9984482873",
+              contactType: "customer service",
+              areaServed: "Worldwide",
+              availableLanguage: ["English", "Hindi"],
+            },
+          },
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqs.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        }),
+      },
+    ],
+  }),
+  component: ContactPage,
+});
 
 function ContactPage() {
   const [errors, setErrors] = useState<Record<string, string>>({});
