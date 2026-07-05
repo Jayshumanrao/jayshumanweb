@@ -60,6 +60,8 @@ export const skills = [
 
 export const testimonials: Testimonial[] = [
   { name: "Anshuman Rao", title: "Business Owner", quote: "Working with Jayshuman was a great experience. The website exceeded my expectations with its modern design, fast performance, and responsive layout. Communication was smooth throughout the project, and every requirement was implemented professionally. I highly recommend his web development services to anyone looking for a high-quality business website.", rating: 5, image: anshuman.url },
+  { name: "Priya Sharma", title: "Founder, UrbanThread", quote: "Jayshuman transformed our online store into a sleek, high-converting website. The attention to detail, fast load times, and mobile-first design directly boosted our sales. He understood our brand vision and delivered beyond what we imagined. Truly a professional developer you can trust.", rating: 5 },
+  { name: "Vikram Mehta", title: "Marketing Director, NexGen Labs", quote: "Our company needed a corporate website that looked premium and performed flawlessly. Jayshuman delivered exactly that — clean code, elegant UI, and smooth animations. The project was completed on time, and the feedback from our clients has been outstanding. Highly recommended.", rating: 5 },
 ];
 
 export const timeline = [
