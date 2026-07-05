@@ -5,6 +5,7 @@ import magazine from "@/assets/project-magazine.jpg";
 import brand from "@/assets/project-brand.jpg";
 import social from "@/assets/project-social.jpg";
 import app from "@/assets/project-app.jpg";
+import anshuman from "@/assets/anshuman-rao.png.asset.json";
 
 export type Project = {
   slug: string;
