@@ -42,9 +42,17 @@ function TestimonialsPage() {
               </div>
               <p className="flex-1 text-lg leading-relaxed">"{t.quote}"</p>
               <div className="mt-8 flex items-center gap-4 border-t border-border pt-6">
-                <div className="grid size-12 place-items-center rounded-full bg-brand/15 font-bold text-brand">
-                  {t.name.charAt(0)}
-                </div>
+                {t.image ? (
+                  <img
+                    src={t.image}
+                    alt={t.name}
+                    className="size-12 rounded-full object-cover ring-2 ring-brand/20"
+                  />
+                ) : (
+                  <div className="grid size-12 place-items-center rounded-full bg-brand/15 font-bold text-brand">
+                    {t.name.charAt(0)}
+                  </div>
+                )}
                 <div>
                   <p className="font-bold">{t.name}</p>
                   <p className="text-xs uppercase tracking-widest text-ink-muted">{t.title}</p>
