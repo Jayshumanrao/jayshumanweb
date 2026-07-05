@@ -1,9 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
   ArrowUpRight,
   ArrowUp,
+  ChevronLeft,
+  ChevronRight,
   Code2,
   Palette,
   PenTool,
@@ -35,7 +37,7 @@ import {
   MessageCircle,
   Calculator,
 } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { testimonials } from "@/lib/portfolio-data";
 import { FadeUp, SectionHeading } from "@/components/section";
 import founderAsset from "@/assets/jayshuman-founder-new.png.asset.json";
