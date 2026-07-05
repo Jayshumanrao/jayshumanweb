@@ -1032,57 +1032,134 @@ function PortfolioSection() {
 // ---------- Testimonials carousel ----------
 function TestimonialCarousel() {
   const [i, setI] = useState(0);
-  useEffect(() => {
-    const id = setInterval(() => setI((v) => (v + 1) % testimonials.length), 5000);
-    return () => clearInterval(id);
+  const [direction, setDirection] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const paginate = useCallback((newDirection: number) => {
+    setDirection(newDirection);
+    setI((v) => {
+      const next = v + newDirection;
+      if (next < 0) return testimonials.length - 1;
+      if (next >= testimonials.length) return 0;
+      return next;
+    });
   }, []);
+
+  useEffect(() => {
+    if (isPaused) return;
+    const id = setInterval(() => paginate(1), 5000);
+    return () => clearInterval(id);
+  }, [isPaused, paginate]);
+
   const t = testimonials[i];
 
+  const variants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? 120 : -120,
+      opacity: 0,
+      scale: 0.96,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+      scale: 1,
+    },
+    exit: (direction: number) => ({
+      x: direction < 0 ? 120 : -120,
+      opacity: 0,
+      scale: 0.96,
+    }),
+  };
+
   return (
-    <section id="testimonials" className="relative overflow-hidden bg-navy py-24 text-white md:py-32">
+    <section
+      id="testimonials"
+      className="relative overflow-hidden bg-navy py-16 text-white sm:py-20 md:py-32"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
       <div aria-hidden className="pointer-events-none absolute inset-0" style={{ background: "var(--gradient-hero)", opacity: 0.4 }} />
       <Particles />
-      <div className="relative mx-auto max-w-4xl px-6">
+      <div className="relative mx-auto max-w-4xl px-4 sm:px-6">
         <FadeUp>
           <div className="text-center">
-            <p className="mb-4 text-xs font-bold uppercase tracking-[0.3em] text-gold">Testimonials</p>
-            <h2 className="font-display text-4xl font-bold md:text-5xl">What Clients Say</h2>
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.3em] text-gold sm:mb-4">Testimonials</p>
+            <h2 className="font-display text-3xl font-bold sm:text-4xl md:text-5xl">What Clients Say</h2>
           </div>
         </FadeUp>
 
-        <motion.div
-          key={i}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mt-12"
-        >
-          <div className="glass-strong relative rounded-3xl p-10 md:p-14">
-            <div className="mb-6 flex justify-center gap-1">
-              {Array.from({ length: t.rating }).map((_, k) => (
-                <Star key={k} className="size-5 fill-gold text-gold" />
-              ))}
-            </div>
-            <p className="font-display text-center text-2xl leading-relaxed md:text-3xl">"{t.quote}"</p>
-            <div className="mt-8 flex items-center justify-center gap-4">
-              <div className="grid size-12 place-items-center rounded-full bg-gradient-to-br from-brand to-gold font-bold text-navy">
-                {t.name.charAt(0)}
+        <div className="relative mt-8 sm:mt-12 md:mt-16" ref={containerRef}>
+          <AnimatePresence initial={false} custom={direction} mode="wait">
+            <motion.div
+              key={i}
+              custom={direction}
+              variants={variants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{ x: { type: "spring", stiffness: 260, damping: 28 }, opacity: { duration: 0.35 }, scale: { duration: 0.35 } }}
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.2}
+              onDragEnd={(_, info) => {
+                if (info.offset.x > 60) paginate(-1);
+                else if (info.offset.x < -60) paginate(1);
+              }}
+              className="cursor-grab active:cursor-grabbing"
+            >
+              <div className="glass-strong relative rounded-2xl p-6 sm:rounded-3xl sm:p-10 md:p-14">
+                <div className="mb-4 flex justify-center gap-1 sm:mb-6">
+                  {Array.from({ length: t.rating }).map((_, k) => (
+                    <Star key={k} className="size-4 fill-gold text-gold sm:size-5" />
+                  ))}
+                </div>
+                <p className="font-display text-center text-lg leading-relaxed sm:text-xl md:text-2xl md:leading-relaxed">"{t.quote}"</p>
+                <div className="mt-6 flex items-center justify-center gap-3 sm:mt-8 sm:gap-4">
+                  {t.image ? (
+                    <img src={t.image} alt={t.name} className="size-10 rounded-full object-cover ring-2 ring-gold/30 sm:size-12" />
+                  ) : (
+                    <div className="grid size-10 place-items-center rounded-full bg-gradient-to-br from-brand to-gold font-bold text-navy sm:size-12">
+                      {t.name.charAt(0)}
+                    </div>
+                  )}
+                  <div className="text-left">
+                    <p className="text-sm font-bold sm:text-base">{t.name}</p>
+                    <p className="text-[10px] uppercase tracking-widest text-white/60 sm:text-xs">{t.title}</p>
+                  </div>
+                </div>
               </div>
-              <div className="text-left">
-                <p className="font-bold">{t.name}</p>
-                <p className="text-xs uppercase tracking-widest text-white/60">{t.title}</p>
-              </div>
-            </div>
-          </div>
-        </motion.div>
+            </motion.div>
+          </AnimatePresence>
 
-        <div className="mt-8 flex justify-center gap-2">
+          {/* Navigation arrows */}
+          <button
+            onClick={() => paginate(-1)}
+            aria-label="Previous testimonial"
+            className="absolute top-1/2 -left-2 hidden -translate-y-1/2 rounded-full border border-white/20 bg-white/10 p-2 backdrop-blur-md transition-all hover:bg-white/20 sm:-left-4 md:flex md:p-2.5"
+          >
+            <ChevronLeft className="size-5 text-white" />
+          </button>
+          <button
+            onClick={() => paginate(1)}
+            aria-label="Next testimonial"
+            className="absolute top-1/2 -right-2 hidden -translate-y-1/2 rounded-full border border-white/20 bg-white/10 p-2 backdrop-blur-md transition-all hover:bg-white/20 sm:-right-4 md:flex md:p-2.5"
+          >
+            <ChevronRight className="size-5 text-white" />
+          </button>
+        </div>
+
+        {/* Pagination dots */}
+        <div className="mt-6 flex justify-center gap-2 sm:mt-8">
           {testimonials.map((_, k) => (
             <button
               key={k}
-              onClick={() => setI(k)}
+              onClick={() => {
+                setDirection(k > i ? 1 : -1);
+                setI(k);
+              }}
               aria-label={`Show testimonial ${k + 1}`}
-              className={`h-2 rounded-full transition-all ${k === i ? "w-8 bg-gold" : "w-2 bg-white/30"}`}
+              className={`h-2 rounded-full transition-all duration-300 ${k === i ? "w-8 bg-gold" : "w-2 bg-white/30 hover:bg-white/50"}`}
             />
           ))}
         </div>
