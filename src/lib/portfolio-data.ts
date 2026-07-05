@@ -5,6 +5,7 @@ import magazine from "@/assets/project-magazine.jpg";
 import brand from "@/assets/project-brand.jpg";
 import social from "@/assets/project-social.jpg";
 import app from "@/assets/project-app.jpg";
+import anshuman from "@/assets/anshuman-rao.png.asset.json";
 
 export type Project = {
   slug: string;
@@ -15,6 +16,14 @@ export type Project = {
   year: string;
   client: string;
   size?: "large" | "tall" | "wide" | "square";
+};
+
+export type Testimonial = {
+  name: string;
+  title: string;
+  quote: string;
+  rating: number;
+  image?: string;
 };
 
 export const projects: Project[] = [
@@ -49,13 +58,8 @@ export const skills = [
   { name: "Print Design", level: 88 },
 ];
 
-export const testimonials = [
-  { name: "Rahul Sharma", title: "Founder, TechStart India", quote: "Jayshuman has a rare ability to translate complex business values into simple, beautiful visual systems. Our brand has never felt more cohesive.", rating: 5 },
-  { name: "Ananya Patel", title: "CEO, Glow Wellness", quote: "Working with Jayshuman was effortless. Strategic, detail-obsessed, and on-time. Our packaging and social creatives now truly stand out.", rating: 5 },
-  { name: "Vikram Mehta", title: "Director, Mehta Enterprises", quote: "He doesn't just design — he builds future-proof brand ecosystems. The clarity and craft he brought to our identity is unmatched.", rating: 5 },
-  { name: "Priya Singh", title: "Marketing Head, Urban Style", quote: "Our social media engagement increased by 60% after Jayshuman redesigned our content. His understanding of modern trends is incredible.", rating: 5 },
-  { name: "Amit Kumar", title: "Founder, BuildRight Construction", quote: "A masterclass in logo and brand design. Every element feels intentional, every detail considered. Highly recommended.", rating: 5 },
-  { name: "Sneha Gupta", title: "Owner, The Coffee House", quote: "He understood our vision within the first call. The brand identity he crafted is timeless and perfectly represents us.", rating: 5 },
+export const testimonials: Testimonial[] = [
+  { name: "Anshuman Rao", title: "Business Owner", quote: "Working with Jayshuman was a great experience. The website exceeded my expectations with its modern design, fast performance, and responsive layout. Communication was smooth throughout the project, and every requirement was implemented professionally. I highly recommend his web development services to anyone looking for a high-quality business website.", rating: 5, image: anshuman.url },
 ];
 
 export const timeline = [
