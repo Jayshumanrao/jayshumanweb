@@ -18,6 +18,14 @@ export type Project = {
   size?: "large" | "tall" | "wide" | "square";
 };
 
+export type Testimonial = {
+  name: string;
+  title: string;
+  quote: string;
+  rating: number;
+  image?: string;
+};
+
 export const projects: Project[] = [
   { slug: "aura-skincare", title: "Aura Botanical Series", category: "Packaging", description: "A luxury skincare line reimagined through warm minimalism.", image: skincare, year: "2024", client: "Aura Wellness", size: "large" },
   { slug: "verve-coffee", title: "Verve Coffee App", category: "UI Design", description: "A mobile ordering experience for a third-wave coffee brand.", image: coffee, year: "2024", client: "Verve Coffee", size: "tall" },
