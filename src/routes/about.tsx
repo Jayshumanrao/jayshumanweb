@@ -18,7 +18,7 @@ import {
   MessageSquare,
   Clock,
 } from "lucide-react";
-import founderAsset from "@/assets/jayshuman-founder-new.png.asset.json";
+import founderAsset from "@/assets/jayshuman-founder-new.png";
 
 const SITE_URL = "https://jayshumanweb.lovable.app";
 
@@ -75,7 +75,7 @@ const aboutData = {
     "Beyond development, I also create professional branding assets including logos, social media graphics, banners, posters, and marketing materials that help businesses build a memorable brand identity.",
     "I believe every business deserves a website that not only looks impressive but also converts visitors into customers. My mission is to deliver digital solutions that help businesses grow with confidence.",
   ],
-  profileImage: founderAsset.url,
+  profileImage: founderAsset,
   experienceBadge: "1+ Years Building Modern Websites",
   availabilityBadge: "Available for Freelance Projects",
   technologies: [

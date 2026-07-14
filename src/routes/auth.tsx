@@ -6,7 +6,7 @@ import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { lovable } from "@/integrations/lovable";
 import { useAuth } from "@/hooks/use-auth";
-import jrLogo from "@/assets/jr-logo.png.asset.json";
+import jrLogo from "@/assets/jr-logo.png";
 
 export const Route = createFileRoute("/auth")({
   head: () => ({
@@ -116,7 +116,7 @@ function AuthPage() {
               className="relative grid size-24 place-items-center rounded-3xl bg-gradient-to-br from-fuchsia-500/30 via-violet-500/30 to-indigo-500/30 p-2 shadow-[0_0_60px_rgba(168,85,247,0.6),0_0_120px_rgba(168,85,247,0.35)]"
             >
               <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-fuchsia-400/30 to-indigo-400/30 blur-xl" />
-              <img src={jrLogo.url} alt="Jayshuman Rao logo" className="relative size-20 object-contain drop-shadow-[0_0_12px_rgba(168,85,247,0.8)]" />
+              <img src={jrLogo} alt="Jayshuman Rao logo" className="relative size-20 object-contain drop-shadow-[0_0_12px_rgba(168,85,247,0.8)]" />
             </motion.div>
             <div className="text-center">
               <p className="font-display text-xl font-bold tracking-tight text-white">Jayshuman Rao</p>

@@ -40,9 +40,9 @@ import {
 import { useEffect, useRef, useState, useCallback } from "react";
 import { testimonials } from "@/lib/portfolio-data";
 import { FadeUp, SectionHeading } from "@/components/section";
-import founderAsset from "@/assets/jayshuman-founder-new.png.asset.json";
-import bannerAsset from "@/assets/jayshuman-banner.png.asset.json";
-import anshumanProject from "@/assets/anshuman-portfolio.png.asset.json";
+import founderAsset from "@/assets/jayshuman-founder-new.png";
+import bannerAsset from "@/assets/jayshuman-banner.png";
+import anshumanProject from "@/assets/anshuman-portfolio.png";
 
 const SITE_URL = "https://jayshumanweb.lovable.app";
 const SOCIAL_IMAGE = "https://storage.googleapis.com/gpt-engineer-file-uploads/8fMRJ9WW88V1A03BiIIrKk3AyLn2/social-images/social-1781087267096-73dbc954-dd6a-4d9b-bb41-d982866d25ae.webp";
