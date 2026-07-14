@@ -222,7 +222,7 @@ const processSteps = [
 ];
 
 const portfolio = [
-  { id: 1, title: "Anshuman Bharti — Data Analyst Portfolio", category: "Web", img: anshumanProject.url, liveUrl: "https://anshumanraoweb.lovable.app/" },
+  { id: 1, title: "Anshuman Bharti — Data Analyst Portfolio", category: "Web", img: anshumanProject, liveUrl: "https://anshumanraoweb.lovable.app/" },
   { id: 2, title: "Nova Finance App", category: "Web", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80", liveUrl: "" },
   { id: 3, title: "Aurora Skincare", category: "Graphic", img: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=900&q=80", liveUrl: "" },
   { id: 4, title: "Helix SaaS", category: "Web", img: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=900&q=80", liveUrl: "" },
@@ -416,7 +416,7 @@ function Home() {
                 <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-brand via-brand/60 to-gold blur-2xl opacity-60" />
                 <Tilt className="relative size-full overflow-hidden rounded-3xl glass-strong shadow-elegant">
                   <img
-                    src={founderAsset.url}
+                    src={founderAsset}
                     alt="Jayshuman Rao"
                     className="size-full object-cover"
                   />
@@ -449,7 +449,7 @@ function Home() {
         >
           <div className="absolute inset-0 bg-gradient-to-r from-brand/10 via-transparent to-gold/10" />
           <img
-            src={bannerAsset.url}
+            src={bannerAsset}
             alt="Jayshuman Rao — Graphic Designer, Web Developer & AI Expert"
             className="relative z-10 aspect-[4/1] w-full object-cover"
             loading="eager"
