@@ -203,6 +203,56 @@ function Tilt({ children, className }: { children: React.ReactNode; className?: 
   );
 }
 
+// ---------- Typewriter ----------
+function Typewriter({ words, className }: { words: string[]; className?: string }) {
+  const [i, setI] = useState(0);
+  const [txt, setTxt] = useState("");
+  const [del, setDel] = useState(false);
+  useEffect(() => {
+    const current = words[i % words.length];
+    const speed = del ? 40 : 90;
+    const t = setTimeout(() => {
+      if (!del) {
+        const next = current.slice(0, txt.length + 1);
+        setTxt(next);
+        if (next === current) setTimeout(() => setDel(true), 1400);
+      } else {
+        const next = current.slice(0, txt.length - 1);
+        setTxt(next);
+        if (next === "") { setDel(false); setI((v) => v + 1); }
+      }
+    }, speed);
+    return () => clearTimeout(t);
+  }, [txt, del, i, words]);
+  return (
+    <span className={className}>
+      {txt}
+      <span className="ml-0.5 inline-block w-[2px] animate-pulse bg-gold align-middle" style={{ height: "1em" }} />
+    </span>
+  );
+}
+
+// ---------- Magnetic button ----------
+function Magnetic({ children, className, href }: { children: React.ReactNode; className?: string; href: string }) {
+  const ref = useRef<HTMLAnchorElement>(null);
+  const onMove = (e: React.MouseEvent) => {
+    const el = ref.current;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    const x = e.clientX - (r.left + r.width / 2);
+    const y = e.clientY - (r.top + r.height / 2);
+    el.style.transform = `translate(${x * 0.25}px, ${y * 0.35}px)`;
+  };
+  const onLeave = () => { if (ref.current) ref.current.style.transform = "translate(0,0)"; };
+  return (
+    <a ref={ref} href={href} onMouseMove={onMove} onMouseLeave={onLeave}
+       className={`inline-flex items-center gap-2 transition-transform duration-300 will-change-transform ${className ?? ""}`}>
+      {children}
+    </a>
+  );
+}
+
+
 // ---------- Data ----------
 const services = [
   { icon: Code2, title: "Web Development", desc: "Fast, secure, scalable websites with modern stacks and pixel-perfect UI." },
@@ -328,17 +378,47 @@ function Home() {
       <MouseGlow />
 
       {/* ============ HERO ============ */}
-      <section ref={heroRef} className="relative overflow-hidden pt-36 pb-24 md:pt-44 md:pb-32">
-        <div aria-hidden className="pointer-events-none absolute inset-0 -z-10" style={{ background: "var(--gradient-hero)" }} />
+      <section
+        ref={heroRef}
+        className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28"
+        style={{ background: "linear-gradient(180deg, #0B0B0B 0%, #111111 100%)" }}
+      >
+        {/* Animated gradient blobs */}
+        <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+          <div className="absolute -top-40 -left-40 h-[520px] w-[520px] animate-float-slow rounded-full bg-[radial-gradient(circle,rgba(250,204,21,0.22),transparent_60%)] blur-3xl" />
+          <div className="absolute top-1/3 -right-40 h-[560px] w-[560px] animate-float-slow rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.08),transparent_60%)] blur-3xl [animation-delay:-4s]" />
+          <div className="absolute bottom-0 left-1/3 h-[420px] w-[420px] animate-float-slow rounded-full bg-[radial-gradient(circle,rgba(250,204,21,0.14),transparent_60%)] blur-3xl [animation-delay:-8s]" />
+        </div>
+        {/* Grid lines */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 -z-10 opacity-[0.07]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
+            backgroundSize: "56px 56px",
+            maskImage: "radial-gradient(ellipse at center, black 40%, transparent 80%)",
+          }}
+        />
+        {/* Noise */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 -z-10 opacity-[0.05] mix-blend-overlay"
+          style={{
+            backgroundImage:
+              "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.6'/></svg>\")",
+          }}
+        />
         <Particles />
 
-        <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-[1.1fr_0.9fr]">
-          <motion.div style={{ y }}>
+        <div className="mx-auto grid max-w-7xl items-center gap-14 px-6 lg:grid-cols-[1.05fr_0.95fr]">
+          {/* LEFT — copy */}
+          <motion.div style={{ y }} className="text-white">
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="glass inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-gold"
+              className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-4 py-2 text-xs font-bold uppercase tracking-[0.24em] text-gold backdrop-blur-xl"
             >
               <span className="relative flex size-2">
                 <span className="absolute inline-flex size-full animate-ping rounded-full bg-gold opacity-75" />
@@ -351,92 +431,141 @@ function Home() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.1, ease: [0.19, 1, 0.22, 1] }}
-              className="font-display mt-6 text-5xl font-extrabold leading-[1] md:text-7xl lg:text-[5rem]"
+              className="font-display mt-6 text-5xl font-extrabold leading-[1.02] tracking-tight md:text-7xl lg:text-[5.2rem]"
             >
-              <span className="inline-block rounded-xl border border-gold/40 bg-gradient-to-br from-brand/25 to-gold/25 px-3 text-gold shadow-gold">Premium</span> Websites & Graphic Designs That Grow Your Business
+              <span className="block bg-gradient-to-br from-white via-white to-white/70 bg-clip-text text-transparent">
+                Premium Websites
+              </span>
+              <span className="mt-2 block bg-gradient-to-r from-[#FDE68A] via-[#FACC15] to-[#F59E0B] bg-clip-text text-transparent">
+                That Grow Brands.
+              </span>
             </motion.h1>
+
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.25 }}
+              className="mt-6 flex items-center gap-3 text-lg md:text-xl"
+            >
+              <span className="text-white/50">I'm a</span>
+              <Typewriter
+                words={["Freelance Web Developer", "UI/UX Designer", "Frontend Developer"]}
+                className="font-semibold text-gold"
+              />
+            </motion.div>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="mt-8 max-w-xl text-lg leading-relaxed text-ink-muted"
+              transition={{ duration: 0.8, delay: 0.35 }}
+              className="mt-6 max-w-xl text-base leading-relaxed text-white/60 md:text-lg"
             >
-              I'm Jayshuman Rao — a freelance designer and developer building luxurious digital experiences for ambitious founders, modern brands, and growing agencies.
+              Jayshuman Rao — crafting luxurious, high-performance digital experiences for ambitious founders and modern brands.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
+              transition={{ duration: 0.8, delay: 0.45 }}
               className="mt-10 flex flex-wrap gap-4"
             >
-              <a
+              <Magnetic
                 href="#contact"
-                className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-brand to-gold px-8 py-4 text-sm font-bold text-background shadow-glow transition-transform hover:scale-[1.03]"
+                className="group relative overflow-hidden rounded-full bg-gold px-8 py-4 text-sm font-bold text-black shadow-[0_10px_40px_-10px_rgba(250,204,21,0.55)] hover:shadow-[0_16px_60px_-10px_rgba(250,204,21,0.8)]"
               >
-                <span className="absolute inset-0 -translate-x-full bg-white/20 transition-transform duration-700 group-hover:translate-x-full" />
-                Hire Me
-                <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-              </a>
-              <a
+                <span className="absolute inset-0 -translate-x-full bg-white/40 transition-transform duration-700 group-hover:translate-x-full" />
+                <span className="relative">Hire Me</span>
+                <ArrowRight className="relative size-4 transition-transform group-hover:translate-x-1" />
+              </Magnetic>
+              <Magnetic
                 href="#portfolio"
-                className="glass inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-bold text-foreground transition-all hover:border-gold hover:text-gold"
+                className="rounded-full border border-white/15 bg-white/[0.04] px-8 py-4 text-sm font-bold text-white backdrop-blur-xl transition-colors hover:border-gold/60 hover:text-gold"
               >
-                View Portfolio
-              </a>
+                View Projects
+                <ArrowUpRight className="size-4" />
+              </Magnetic>
             </motion.div>
 
-            <div className="mt-12 flex flex-wrap items-center gap-8 text-sm text-ink-muted">
+            <div className="mt-12 flex flex-wrap items-center gap-6 text-sm text-white/50">
               <div className="flex items-center gap-2">
                 <div className="flex">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <Star key={i} className="size-4 fill-gold text-gold" />
                   ))}
                 </div>
-                <span className="font-semibold text-foreground">5.0</span> from 60+ reviews
+                <span className="font-semibold text-white">5.0</span> from 60+ reviews
               </div>
-              <div className="hidden h-4 w-px bg-border md:block" />
+              <div className="hidden h-4 w-px bg-white/15 md:block" />
               <span>Trusted by founders in 12+ countries</span>
             </div>
           </motion.div>
 
-          {/* 3D illustration */}
+          {/* RIGHT — circular profile */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
-            className="relative mx-auto aspect-square w-full max-w-md"
+            className="relative mx-auto aspect-square w-full max-w-[440px]"
           >
-            <div className="absolute inset-0 animate-spin-slow rounded-full border border-dashed border-gold/30" />
-            <div className="absolute inset-8 animate-spin-slow rounded-full border border-dashed border-brand/30 [animation-direction:reverse]" />
+            {/* Warm spotlight behind */}
+            <div aria-hidden className="absolute inset-[-10%] rounded-full bg-[radial-gradient(circle,rgba(250,204,21,0.35),transparent_65%)] blur-3xl" />
+            {/* Glass card backdrop */}
+            <div aria-hidden className="absolute inset-4 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-2xl" />
+            {/* Orbit rings */}
+            <div aria-hidden className="absolute inset-0 animate-spin-slow rounded-full border border-dashed border-gold/30" />
+            <div aria-hidden className="absolute inset-6 animate-spin-slow rounded-full border border-dashed border-white/15 [animation-direction:reverse]" />
 
-            <div className="absolute inset-8 sm:inset-12 lg:inset-16 grid place-items-center">
-              <div className="relative size-full">
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-brand via-brand/60 to-gold blur-2xl opacity-60" />
-                <Tilt className="relative size-full overflow-hidden rounded-3xl glass-strong shadow-elegant">
-                  <img
-                    src={founderAsset}
-                    alt="Jayshuman Rao"
-                    className="size-full object-cover"
-                  />
-                </Tilt>
+            {/* Yellow glow ring + white border + tilt image */}
+            <motion.div
+              animate={{ y: [0, -12, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute inset-10 sm:inset-12"
+            >
+              <div className="relative h-full w-full rounded-full p-[3px] shadow-[0_0_80px_-10px_rgba(250,204,21,0.6),0_30px_80px_-30px_rgba(0,0,0,0.9)]"
+                   style={{ background: "conic-gradient(from 90deg, #FACC15, #FDE68A, #F59E0B, #FACC15)" }}>
+                <div className="h-full w-full rounded-full bg-black p-[2px]">
+                  <Tilt className="relative h-full w-full overflow-hidden rounded-full ring-2 ring-white/90">
+                    <img
+                      src={founderAsset}
+                      alt="Jayshuman Rao — Freelance Web Developer & Designer"
+                      className="h-full w-full object-cover object-top"
+                      loading="eager"
+                      decoding="async"
+                    />
+                  </Tilt>
+                </div>
               </div>
-            </div>
+            </motion.div>
 
-            {/* floating icons */}
-            <div className="absolute -top-2 right-2 sm:right-6 grid size-10 sm:size-12 lg:size-14 animate-float-y place-items-center rounded-2xl glass-strong text-brand shadow-glow">
-              <Code2 className="size-5 sm:size-6" />
-            </div>
-            <div className="absolute bottom-4 -left-2 grid size-10 sm:size-12 lg:size-14 animate-float-y place-items-center rounded-2xl glass-strong text-gold shadow-gold [animation-delay:-2s]">
-              <Palette className="size-5 sm:size-6" />
-            </div>
-            <div className="absolute top-1/2 -right-2 sm:-right-4 grid size-9 sm:size-10 lg:size-12 animate-float-y place-items-center rounded-2xl glass-strong text-brand [animation-delay:-4s]">
-              <Sparkles className="size-4 sm:size-5" />
-            </div>
+            {/* Floating tech badges */}
+            {[
+              { label: "React", x: "50%", y: "-2%" },
+              { label: "TS", x: "92%", y: "12%" },
+              { label: "JS", x: "100%", y: "50%" },
+              { label: "Tailwind", x: "92%", y: "86%" },
+              { label: "HTML5", x: "50%", y: "100%" },
+              { label: "CSS3", x: "8%", y: "86%" },
+              { label: "Node", x: "0%", y: "50%" },
+              { label: "GitHub", x: "8%", y: "12%" },
+              { label: "Figma", x: "72%", y: "-4%" },
+              { label: "VS Code", x: "28%", y: "-4%" },
+            ].map((t, i) => (
+              <motion.div
+                key={t.label}
+                className="pointer-events-none absolute hidden -translate-x-1/2 -translate-y-1/2 sm:block"
+                style={{ left: t.x, top: t.y }}
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 3 + (i % 4), repeat: Infinity, ease: "easeInOut", delay: i * 0.2 }}
+              >
+                <div className="grid h-10 min-w-10 place-items-center rounded-xl border border-white/15 bg-white/[0.06] px-2.5 text-[10px] font-bold uppercase tracking-wider text-white shadow-lg backdrop-blur-xl">
+                  {t.label}
+                </div>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </section>
+
 
       {/* ============ BANNER ============ */}
       <section className="mx-auto max-w-7xl px-6 pb-6 md:pb-10">
