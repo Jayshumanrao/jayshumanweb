@@ -203,6 +203,56 @@ function Tilt({ children, className }: { children: React.ReactNode; className?: 
   );
 }
 
+// ---------- Typewriter ----------
+function Typewriter({ words, className }: { words: string[]; className?: string }) {
+  const [i, setI] = useState(0);
+  const [txt, setTxt] = useState("");
+  const [del, setDel] = useState(false);
+  useEffect(() => {
+    const current = words[i % words.length];
+    const speed = del ? 40 : 90;
+    const t = setTimeout(() => {
+      if (!del) {
+        const next = current.slice(0, txt.length + 1);
+        setTxt(next);
+        if (next === current) setTimeout(() => setDel(true), 1400);
+      } else {
+        const next = current.slice(0, txt.length - 1);
+        setTxt(next);
+        if (next === "") { setDel(false); setI((v) => v + 1); }
+      }
+    }, speed);
+    return () => clearTimeout(t);
+  }, [txt, del, i, words]);
+  return (
+    <span className={className}>
+      {txt}
+      <span className="ml-0.5 inline-block w-[2px] animate-pulse bg-gold align-middle" style={{ height: "1em" }} />
+    </span>
+  );
+}
+
+// ---------- Magnetic button ----------
+function Magnetic({ children, className, href }: { children: React.ReactNode; className?: string; href: string }) {
+  const ref = useRef<HTMLAnchorElement>(null);
+  const onMove = (e: React.MouseEvent) => {
+    const el = ref.current;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    const x = e.clientX - (r.left + r.width / 2);
+    const y = e.clientY - (r.top + r.height / 2);
+    el.style.transform = `translate(${x * 0.25}px, ${y * 0.35}px)`;
+  };
+  const onLeave = () => { if (ref.current) ref.current.style.transform = "translate(0,0)"; };
+  return (
+    <a ref={ref} href={href} onMouseMove={onMove} onMouseLeave={onLeave}
+       className={`inline-flex items-center gap-2 transition-transform duration-300 will-change-transform ${className ?? ""}`}>
+      {children}
+    </a>
+  );
+}
+
+
 // ---------- Data ----------
 const services = [
   { icon: Code2, title: "Web Development", desc: "Fast, secure, scalable websites with modern stacks and pixel-perfect UI." },
