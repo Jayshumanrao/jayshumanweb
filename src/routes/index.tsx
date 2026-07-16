@@ -476,15 +476,14 @@ function HeroCinematic({ heroRef, y }: { heroRef: React.RefObject<HTMLDivElement
               href="#portfolio"
               className="group relative overflow-hidden rounded-full px-8 py-4 text-sm font-bold text-white"
             >
-              <a onClick={rippleClick as unknown as React.MouseEventHandler<HTMLAnchorElement>} href="#portfolio"
-                 className="absolute inset-0 rounded-full"
-                 style={{
-                   background: "linear-gradient(135deg, #2563EB 0%, #60A5FA 100%)",
-                   boxShadow: "0 12px 40px -10px rgba(37,99,235,0.9), inset 0 1px 0 rgba(255,255,255,0.3)",
-                 }} />
-              <span className="pointer-events-none absolute inset-0 -translate-x-full bg-white/40 transition-transform duration-700 group-hover:translate-x-full" />
-              <span className="pointer-events-none relative">View Portfolio</span>
-              <ArrowRight className="pointer-events-none relative size-4 transition-transform group-hover:translate-x-1" />
+              <span aria-hidden className="absolute inset-0 rounded-full"
+                style={{
+                  background: "linear-gradient(135deg, #2563EB 0%, #60A5FA 100%)",
+                  boxShadow: "0 12px 40px -10px rgba(37,99,235,0.9), inset 0 1px 0 rgba(255,255,255,0.3)",
+                }} />
+              <span aria-hidden className="absolute inset-0 -translate-x-full bg-white/40 transition-transform duration-700 group-hover:translate-x-full" />
+              <span className="relative">View Portfolio</span>
+              <ArrowRight className="relative size-4 transition-transform group-hover:translate-x-1" />
             </Magnetic>
             <Magnetic
               href="#contact"
